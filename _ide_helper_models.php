@@ -17,13 +17,13 @@ namespace App\Models{
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property float $name
+ * @property string $name
  * @property float $price
  * @property int $in_stock
  * @property int $min_stock
  * @property string|null $description
- * @property int $is_out_stock
- * @property int $is_low_stock
+ * @property bool $is_out_stock
+ * @property bool $is_low_stock
  * @property string|null $img_name
  * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
@@ -41,6 +41,56 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  */
 	class Product extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Purchase
+ *
+ * @property int $id
+ * @property int $product_id
+ * @property float $price
+ * @property int $quantity
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Product $product
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereQuantity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereUpdatedAt($value)
+ */
+	class Purchase extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Sale
+ *
+ * @property int $id
+ * @property int $product_id
+ * @property int $quantity
+ * @property float $sold_at
+ * @property float $price
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Product $product
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereQuantity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereSoldAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereUpdatedAt($value)
+ */
+	class Sale extends \Eloquent {}
 }
 
 namespace App\Models{

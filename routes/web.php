@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/data', [ProductController::class,'index']);
-Route::post('/data', [ProductController::class,'index']);
+Route::post('/sale', [SaleController::class,'index']);
+Route::post('/purchase', [PurchaseController::class,'index']);
 
 //Auth::routes();
 

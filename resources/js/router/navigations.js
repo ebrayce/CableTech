@@ -10,19 +10,19 @@ let locations = [
         id:2,
         path:'/products',
         name:'Products',
-        icon:"mdi-clock"
+        icon:"mdi-semantic-web"
 
     },{
         id:2,
         path:'/sales',
         name:'Sales',
-        icon:"mdi-clock"
+        icon:"mdi-cash-plus"
 
     },{
         id:2,
         path:'/purchases',
         name:'Purchases',
-        icon:"mdi-clock"
+        icon:"mdi-cash-minus"
 
     },
 
