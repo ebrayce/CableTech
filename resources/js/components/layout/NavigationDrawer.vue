@@ -2,19 +2,15 @@
     <v-sheet>
         <v-list-item>
             <v-list-item-content>
-                <v-list-item-title class="title">
-                    Cable Tech
-                </v-list-item-title>
-                <v-list-item-subtitle>
-                    Electronics
-                </v-list-item-subtitle>
+                <v-img append max-height="100"
+                       max-width="100"src="/logo.jpeg"></v-img>
             </v-list-item-content>
         </v-list-item>
 
         <v-list>
             <v-list-item>
                 <v-list-item-avatar>
-                    <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+                    <v-img src="/user.jpeg"></v-img>
                 </v-list-item-avatar>
 
                 <v-list-item-content>

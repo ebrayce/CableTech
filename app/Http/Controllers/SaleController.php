@@ -42,9 +42,9 @@ class SaleController extends Controller
         $product = Product::findOrFail($request->product_id);
 
         $product->in_stock = $product->in_stock - $request->quantity;
-        $product->is_out_stock = $product->in_stock <= 0;
-        $product->is_low_stock = $request->in_stock <= $request->min_stock;
-        $product->save();
+
+        Product::saveProduct($product);
+
 
 
 

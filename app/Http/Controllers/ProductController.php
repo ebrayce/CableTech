@@ -45,7 +45,8 @@ class ProductController extends Controller
     private function deleteProduct(Request $request)
     {
         try {
-            Product::findOrFail($request->id)->delete();
+           $product = Product::findOrFail($request->id);
+           $product->purchases->delete();
             return true;
         } catch (\Exception $e) {
             abort(500);

@@ -1,7 +1,7 @@
 let locations = [
     {
         id:1,
-        path:'/home',
+        path:'/',
         name:'Home',
         icon:"mdi-home"
 

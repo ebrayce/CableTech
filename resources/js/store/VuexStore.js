@@ -366,7 +366,7 @@ const store = new Vuex.Store({
             }
 
             loadSomething(context, data).then(res=>{
-                context.commit('dop',purchase)
+                context.commit('deleteOnePurchase',purchase)
                 context.commit('updateOneProduct',res.product)
             }).catch(error=>{
                 console.log("Bad")

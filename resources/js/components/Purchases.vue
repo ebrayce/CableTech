@@ -46,37 +46,15 @@
                                         sm="12"
                                         md="12"
                                     >
-                                        <v-toolbar
-                                            dark
-                                            color="teal"
-                                        >
-                                            <!--<v-autocomplete
-                                                v-model="select"
-                                                item-value="id"
-                                                item-text="name"
-                                                :items="products"
-                                                cache-items
-                                                class="mx-4"
-                                                flat
-                                                hide-no-data
-                                                hide-details
-                                                label="Product"
-                                                solo-inverted
-                                            ></v-autocomplete>-->
-
-                                            <v-autocomplete
-                                                v-model="select"
-                                                :items="products"
-                                                :item-value="this"
-                                                item-text="name"
-                                                dense
-                                                filled
-                                                label="Filled"
-                                            ></v-autocomplete>
-                                            <v-btn icon>
-                                                <v-icon>mdi-dots-vertical</v-icon>
-                                            </v-btn>
-                                        </v-toolbar>
+                                        <v-autocomplete
+                                            v-model="select"
+                                            :items="products"
+                                            :item-value="this"
+                                            item-text="name"
+                                            dense
+                                            filled
+                                            label="Select Product"
+                                        ></v-autocomplete>
                                     </v-col>
                                     <v-col
                                         cols="12"
@@ -131,9 +109,11 @@
                     max-width="500px"
                 >
                     <v-card>
-                        <v-card-title>
-                            <span class="headline">{{ activeItem.description }}</span>
-                        </v-card-title>
+                        <v-list>
+                            <v-list-item><span class="headline">{{ activeItem.description }}</span></v-list-item>
+                            <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
+                            <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
+                        </v-list>
                     </v-card>
                 </v-dialog>
 
@@ -153,6 +133,14 @@
             {{productName(item.product_id)}}
         </template>
 
+        <template v-slot:item.description="{ item }">
+            <v-btn
+                class="mr-2"
+                @click="showDescription(item)"
+            >View</v-btn>
+
+
+        </template>
         <template v-slot:no-data>
             <v-sheet class="m-5">
                 <v-card-text>Oops No record</v-card-text>
@@ -192,6 +180,7 @@ export default {
             { text: 'Product', value: 'product' },
             { text: 'Price', value: 'price' },
             { text: 'Quantity', value: 'quantity' },
+            { text: 'Description', value: 'description' },
             { text: 'Actions', value: 'actions', sortable: false },
         ],
 
@@ -230,9 +219,11 @@ export default {
         // this.initialize()
     },
     methods:{
-
+        showDescription(item){
+            this.activeItem = item;
+            this.showingDescription = true;
+        },
         productName:function (id){
-            console.log(id)
             return this.$store.getters.getProductById(id).name;
         },
         initialize(){

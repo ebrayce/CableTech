@@ -2260,6 +2260,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Product",
   data: function data() {
@@ -2555,18 +2562,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Purchases",
   data: function data() {
@@ -2588,6 +2583,9 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: 'Quantity',
         value: 'quantity'
+      }, {
+        text: 'Description',
+        value: 'description'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -2626,8 +2624,11 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {// this.initialize()
   },
   methods: {
+    showDescription: function showDescription(item) {
+      this.activeItem = item;
+      this.showingDescription = true;
+    },
     productName: function productName(id) {
-      console.log(id);
       return this.$store.getters.getProductById(id).name;
     },
     initialize: function initialize() {// this.$store.dispatch('loadPurchases');
@@ -2893,15 +2894,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Sales",
   data: function data() {
@@ -2926,6 +2918,9 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: 'Quantity',
         value: 'quantity'
+      }, {
+        text: 'Description',
+        value: 'description'
       }, {
         text: 'Actions',
         value: 'actions',
@@ -2966,6 +2961,10 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {// this.initialize()
   },
   methods: {
+    showDescription: function showDescription(item) {
+      this.activeItem = item;
+      this.showingDescription = true;
+    },
     productName: function productName(id) {
       console.log(id);
       return this.$store.getters.getProductById(id).name;
@@ -3187,10 +3186,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router_navigations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../router/navigations */ "./resources/js/router/navigations.js");
 /* harmony import */ var _helpers_loadSomething__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/loadSomething */ "./resources/js/helpers/loadSomething.js");
-//
-//
-//
-//
 //
 //
 //
@@ -5588,11 +5583,37 @@ var render = function() {
                     _c(
                       "v-card",
                       [
-                        _c("v-card-title", [
-                          _c("span", { staticClass: "headline" }, [
-                            _vm._v(_vm._s(_vm.activeItem.description))
-                          ])
-                        ])
+                        _c(
+                          "v-card-title",
+                          [
+                            _c(
+                              "v-list",
+                              [
+                                _c("v-list-item", [
+                                  _c("span", { staticClass: "headline" }, [
+                                    _vm._v(_vm._s(_vm.activeItem.description))
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("v-list-item", [
+                                  _c("span", { staticClass: "headline" }, [
+                                    _vm._v(
+                                      "Date: " + _vm._s(_vm.activeItem.date)
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("v-list-item", [
+                                  _c("span", { staticClass: "headline" }, [
+                                    _vm._v(_vm._s(_vm.activeItem.fromNow))
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
                       ],
                       1
                     )
@@ -5861,43 +5882,23 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _c(
-                                          "v-toolbar",
-                                          {
-                                            attrs: { dark: "", color: "teal" }
+                                        _c("v-autocomplete", {
+                                          attrs: {
+                                            items: _vm.products,
+                                            "item-value": this,
+                                            "item-text": "name",
+                                            dense: "",
+                                            filled: "",
+                                            label: "Select Product"
                                           },
-                                          [
-                                            _c("v-autocomplete", {
-                                              attrs: {
-                                                items: _vm.products,
-                                                "item-value": this,
-                                                "item-text": "name",
-                                                dense: "",
-                                                filled: "",
-                                                label: "Filled"
-                                              },
-                                              model: {
-                                                value: _vm.select,
-                                                callback: function($$v) {
-                                                  _vm.select = $$v
-                                                },
-                                                expression: "select"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-btn",
-                                              { attrs: { icon: "" } },
-                                              [
-                                                _c("v-icon", [
-                                                  _vm._v("mdi-dots-vertical")
-                                                ])
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        )
+                                          model: {
+                                            value: _vm.select,
+                                            callback: function($$v) {
+                                              _vm.select = $$v
+                                            },
+                                            expression: "select"
+                                          }
+                                        })
                                       ],
                                       1
                                     ),
@@ -6036,11 +6037,29 @@ var render = function() {
                     _c(
                       "v-card",
                       [
-                        _c("v-card-title", [
-                          _c("span", { staticClass: "headline" }, [
-                            _vm._v(_vm._s(_vm.activeItem.description))
-                          ])
-                        ])
+                        _c(
+                          "v-list",
+                          [
+                            _c("v-list-item", [
+                              _c("span", { staticClass: "headline" }, [
+                                _vm._v(_vm._s(_vm.activeItem.description))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("v-list-item", [
+                              _c("span", { staticClass: "headline" }, [
+                                _vm._v("Date: " + _vm._s(_vm.activeItem.date))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("v-list-item", [
+                              _c("span", { staticClass: "headline" }, [
+                                _vm._v(_vm._s(_vm.activeItem.fromNow))
+                              ])
+                            ])
+                          ],
+                          1
+                        )
                       ],
                       1
                     )
@@ -6081,6 +6100,26 @@ var render = function() {
           return [
             _vm._v(
               "\n        " + _vm._s(_vm.productName(item.product_id)) + "\n    "
+            )
+          ]
+        }
+      },
+      {
+        key: "item.description",
+        fn: function(ref) {
+          var item = ref.item
+          return [
+            _c(
+              "v-btn",
+              {
+                staticClass: "mr-2",
+                on: {
+                  click: function($event) {
+                    return _vm.showDescription(item)
+                  }
+                }
+              },
+              [_vm._v("View")]
             )
           ]
         }
@@ -6264,43 +6303,25 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _c(
-                                          "v-toolbar",
-                                          {
-                                            attrs: { dark: "", color: "teal" }
+                                        _c("v-autocomplete", {
+                                          staticClass: "amber",
+                                          attrs: {
+                                            dark: "",
+                                            items: _vm.products,
+                                            "item-value": this,
+                                            "item-text": "name",
+                                            dense: "",
+                                            filled: "",
+                                            label: "Select Product"
                                           },
-                                          [
-                                            _c("v-autocomplete", {
-                                              attrs: {
-                                                items: _vm.products,
-                                                "item-value": this,
-                                                "item-text": "name",
-                                                dense: "",
-                                                filled: "",
-                                                label: "Filled"
-                                              },
-                                              model: {
-                                                value: _vm.select,
-                                                callback: function($$v) {
-                                                  _vm.select = $$v
-                                                },
-                                                expression: "select"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-btn",
-                                              { attrs: { icon: "" } },
-                                              [
-                                                _c("v-icon", [
-                                                  _vm._v("mdi-dots-vertical")
-                                                ])
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        )
+                                          model: {
+                                            value: _vm.select,
+                                            callback: function($$v) {
+                                              _vm.select = $$v
+                                            },
+                                            expression: "select"
+                                          }
+                                        })
                                       ],
                                       1
                                     ),
@@ -6467,11 +6488,37 @@ var render = function() {
                     _c(
                       "v-card",
                       [
-                        _c("v-card-title", [
-                          _c("span", { staticClass: "headline" }, [
-                            _vm._v(_vm._s(_vm.activeItem.description))
-                          ])
-                        ])
+                        _c(
+                          "v-card-title",
+                          [
+                            _c(
+                              "v-list",
+                              [
+                                _c("v-list-item", [
+                                  _c("span", { staticClass: "headline" }, [
+                                    _vm._v(_vm._s(_vm.activeItem.description))
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("v-list-item", [
+                                  _c("span", { staticClass: "headline" }, [
+                                    _vm._v(
+                                      "Date: " + _vm._s(_vm.activeItem.date)
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("v-list-item", [
+                                  _c("span", { staticClass: "headline" }, [
+                                    _vm._v(_vm._s(_vm.activeItem.fromNow))
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
                       ],
                       1
                     )
@@ -6512,6 +6559,26 @@ var render = function() {
           return [
             _vm._v(
               "\n        " + _vm._s(_vm.productName(item.product_id)) + "\n    "
+            )
+          ]
+        }
+      },
+      {
+        key: "item.description",
+        fn: function(ref) {
+          var item = ref.item
+          return [
+            _c(
+              "v-btn",
+              {
+                staticClass: "mr-2",
+                on: {
+                  click: function($event) {
+                    return _vm.showDescription(item)
+                  }
+                }
+              },
+              [_vm._v("View")]
             )
           ]
         }
@@ -6685,13 +6752,14 @@ var render = function() {
           _c(
             "v-list-item-content",
             [
-              _c("v-list-item-title", { staticClass: "title" }, [
-                _vm._v("\n                Cable Tech\n            ")
-              ]),
-              _vm._v(" "),
-              _c("v-list-item-subtitle", [
-                _vm._v("\n                Electronics\n            ")
-              ])
+              _c("v-img", {
+                attrs: {
+                  append: "",
+                  "max-height": "100",
+                  "max-width": "100",
+                  src: "/logo.jpeg"
+                }
+              })
             ],
             1
           )
@@ -6707,13 +6775,7 @@ var render = function() {
             [
               _c(
                 "v-list-item-avatar",
-                [
-                  _c("v-img", {
-                    attrs: {
-                      src: "https://randomuser.me/api/portraits/men/78.jpg"
-                    }
-                  })
-                ],
+                [_c("v-img", { attrs: { src: "/user.jpeg" } })],
                 1
               ),
               _vm._v(" "),
@@ -68244,7 +68306,7 @@ var opts = {};
 __webpack_require__.r(__webpack_exports__);
 var locations = [{
   id: 1,
-  path: '/home',
+  path: '/',
   name: 'Home',
   icon: "mdi-home"
 }, {
@@ -68291,7 +68353,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 // We'll talk about nested routes later.
 
 var routes = [{
-  path: '/home',
+  path: '/',
   component: __webpack_require__(/*! ../components/Home */ "./resources/js/components/Home.vue")["default"],
   name: "Home"
 }, {
@@ -68865,7 +68927,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
         id: purchase.id
       };
       Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
-        context.commit('dop', purchase);
+        context.commit('deleteOnePurchase', purchase);
         context.commit('updateOneProduct', res.product);
       })["catch"](function (error) {
         console.log("Bad");

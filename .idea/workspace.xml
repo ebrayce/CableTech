@@ -153,7 +153,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Trait" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -164,6 +164,8 @@
       <recent name="C:\xampp\htdocs\Development\CableTech\resources\js\components" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Development\CableTech\app\Trait" />
+      <recent name="C:\xampp\htdocs\Development\CableTech\public" />
       <recent name="C:\xampp\htdocs\Development\CableTech\resources\js" />
     </key>
   </component>
@@ -182,7 +184,7 @@
       <option name="presentableId" value="Default" />
       <updated>1601312046533</updated>
       <workItem from="1601312047651" duration="3629000" />
-      <workItem from="1601315981167" duration="69673000" />
+      <workItem from="1601315981167" duration="76384000" />
     </task>
     <servers />
   </component>
@@ -206,6 +208,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="459" y="296" key="ComposerInitDialogKey/0.0.1366.768@0.0.1366.768" timestamp="1601339428419" />
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1601425866615">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1601425866615" />
     <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1601314764713">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
