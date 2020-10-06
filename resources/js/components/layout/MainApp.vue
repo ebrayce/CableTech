@@ -68,6 +68,7 @@
             <v-container fluid>
                 <!-- If using vue-router -->
                 <router-view></router-view>
+                <vue-progress-bar></vue-progress-bar>
             </v-container>
 
         </v-main>
@@ -102,7 +103,6 @@ name: "MainApp",
         mini:true,
     }),
     computed:{
-
         isMobile(){
             return this.$vuetify.breakpoint.mobile;
         },
@@ -130,6 +130,8 @@ name: "MainApp",
     mounted() {
 
         this.$store.dispatch('loadData');
+
+
         // if(!this.$store.state.isAuth){
         //     // alert("here")
         //     this.$store.dispatch('login');

@@ -46,7 +46,9 @@ class ProductController extends Controller
     {
         try {
            $product = Product::findOrFail($request->id);
-           $product->purchases->delete();
+           $product->purchases()->delete();
+           $product->sales()->delete();
+           $product->delete();
             return true;
         } catch (\Exception $e) {
             abort(500);

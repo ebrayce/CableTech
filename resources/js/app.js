@@ -6,13 +6,22 @@
 
 import store from "./store/VuexStore";
 
+import vue from "vue";
 require('./bootstrap');
 import VueProgressBar from 'vue-progressbar';
 import router from './router/router';
 import vuetify  from './helpers/vuetify';
 import VueProgressOptions  from "./helpers/VueProgress";
-window.Vue = require('vue');
+window.Vue = vue;
 import Vuex from 'vuex'
+
+import VueSweetalert2 from 'vue-sweetalert2';
+
+// If you don't need the styles, do not connect
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+Vue.use(VueSweetalert2);
+
 
 Vue.use(Vuex)
 /**
@@ -43,6 +52,8 @@ const app = new Vue({
     store,
     vuetify,
 }).$mount('#app');
+
+store.$app = app;
 
 
 window.axios.interceptors.request.use(

@@ -4,7 +4,7 @@ export default {
     height: '1em',
     autoFinish:false,
     transition:{
-        speed: '5s',
+        speed: '2s',
         opacity: '0.6s',
         termination: 100
     }
