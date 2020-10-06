@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +160,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Trait" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TempPro" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -192,6 +193,7 @@
       <workItem from="1601312047651" duration="3629000" />
       <workItem from="1601315981167" duration="76384000" />
       <workItem from="1601450140796" duration="5929000" />
+      <workItem from="1601983462656" duration="1802000" />
     </task>
     <servers />
   </component>
@@ -203,9 +205,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="328" y="35" key="#CLI_Interpreters/0.0.1366.768@0.0.1366.768" timestamp="1601389376873" />
-    <state x="455" y="185" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601396395482">
+    <state x="455" y="185" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601983708623">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="455" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1601983708623" />
     <state x="455" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1601396395482" />
     <state x="413" y="138" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601413529100">
       <screen x="0" y="0" width="1366" height="768" />
@@ -215,9 +218,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="459" y="296" key="ComposerInitDialogKey/0.0.1366.768@0.0.1366.768" timestamp="1601339428419" />
-    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1601425866615">
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1601983669181">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1601983669181" />
     <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1601425866615" />
     <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1601314764713">
       <screen x="0" y="0" width="1366" height="768" />
