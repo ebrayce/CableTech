@@ -82,7 +82,7 @@
                 class="text-center"
                 cols="12"
             >
-                {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+                {{ new Date().getFullYear() }} — <strong><a href="https://www.facebook.com/brayce.ernest/">Powered By Ernest Brayce</a></strong>
             </v-col>
         </v-footer>
     </v-app>
