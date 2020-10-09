@@ -28,11 +28,7 @@
         <link rel="stylesheet" href="{{asset(mix('css/app.css'), true)}}">
     @endif
 
-    @if (config('app.env') == 'local')
-        <script src="{{asset('js/app.js')}}"></script>
-    @else
-        <script src="{{asset(mix('js/app.js'), true)}}"></script>
-    @endif
+
 </head>
 <body>
 <div id="app">
@@ -40,5 +36,11 @@
         @yield('content')
     </main>
 </div>
+
+@if (config('app.env') == 'local')
+    <script src="{{asset('js/app.js')}}"></script>
+@else
+    <script src="{{asset(mix('js/app.js'), true)}}"></script>
+@endif
 </body>
 </html>
