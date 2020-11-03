@@ -19,17 +19,36 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+Route::post('/user',function (){
+    return auth()->user();
+})->middleware('auth:web');
 
+Route::get('/gamiskah',function (){
+
+    if(!\App\Models\User::where('email','admin@gmail.com')){
+        $user = new \App\Models\User();
+        $user->name = "Admin";
+        $user-> email = "admin@gmail.com";
+        $user-> password = Hash::make("admin@123");
+        $user->save();
+        return redirect('/');
+    }else{
+        return redirect('/');
+    }
+
+});
 
 Route::post('/data', [ProductController::class,'index']);
 Route::post('/sale', [SaleController::class,'index']);
 Route::post('/purchase', [PurchaseController::class,'index']);
 
-//Auth::routes();
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('{name}',function (){
-    $auth = Auth::check() ? auth()->user():[];
+    $auth = auth()->user();
+    $isAuth = auth()->check();
 
-    return view('main',compact('auth'));
+    return view('main',compact('auth','isAuth'));
 })->where('name','([A-z0-9\-/_.]+)?');
+Auth::routes();

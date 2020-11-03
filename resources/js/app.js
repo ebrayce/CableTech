@@ -35,7 +35,8 @@ Vue.use(Vuex)
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent').default);
+Vue.component('login', require('./components/LogIn').default);
 Vue.component('main-app', require('./components/layout/MainApp.vue').default);
 Vue.component('app-nav', require('./components/layout/NavigationDrawer.vue').default);
 // Vue.component('home', require('./components/Home').default);

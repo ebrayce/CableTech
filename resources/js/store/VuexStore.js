@@ -15,7 +15,7 @@ function showErrorNotification() {
 }
 
 
-function showSuccessNotification (message ='Product Updated successfully.', icon = 'success', position = 'top-end' ){
+function showSuccessNotification(message = 'Product Updated successfully.', icon = 'success', position = 'top-end') {
     Vue.swal({
         position: position,
         icon: icon,
@@ -24,6 +24,7 @@ function showSuccessNotification (message ='Product Updated successfully.', icon
         timer: 1500
     })
 }
+
 
 const store = new Vuex.Store({
     state: {
@@ -35,7 +36,7 @@ const store = new Vuex.Store({
         sales: [],
         purchases: [],
         isAuth: false,
-        overview: {}
+        overview: {},
     },
     mutations: {
 
@@ -44,6 +45,9 @@ const store = new Vuex.Store({
         },
         updateUser(state, user) {
             state.user = user;
+        },
+        updateIsAuth(state, value) {
+            state.isAuth = value;
         },
         updateOverview(state, overview) {
             state.overview = overview;
@@ -135,6 +139,23 @@ const store = new Vuex.Store({
 
     },
     actions: {
+        loadPost(context, payload) {
+            return new Promise((resolve, reject) => {
+                axios.post(payload.url, payload).then(res => {
+                    resolve(res)
+                }).catch(error => {
+                    if (error.response.status === 419){
+                        context.dispatch('pageExpired');
+                    }
+
+                    reject(error)
+                })
+            })
+        },
+
+        pageExpired(context){
+            context.commit('updateIsAuth',false)
+        },
 
         async loadData(context) {
             await context.dispatch('loadProducts');
@@ -228,35 +249,35 @@ const store = new Vuex.Store({
             });
         },
 
-        login: function (context) {
+        loadUser: function (context) {
+            context.dispatch('loadPost',{
+                url:"/user"
+            }).then(res => {
+                context.commit('updateUser', res.data)
+            })
+        },
 
+        login: function (context, payload) {
+            let info = payload;
+            info.url = "/login";
             return new Promise((resolve, reject) => {
-                let data = {
-                    url: "/login",
-                    email: "isaac@gmail.com",
-                    password: "ghana1234"
-                }
-
-                loadSomething(context, data).then(res => {
-                    // console.log("Good",res)
+                context.dispatch("loadPost", info).then(res => {
                     resolve(res)
                 }).catch(error => {
-                    showErrorNotification()
-                });
+                    reject(error)
+                })
             })
 
 
         },
         logout(context) {
-            let vm = this;
-            let data = {
-                url: "/logout",
-            }
-            /*loadSomething(this, data).then(()=>{
-                vm.$router.push('/login')
-            })*/
+           context.dispatch('loadPost',{
+               url:'/logout'
+           }).then(()=>{
+               context.commit('updateIsAuth',false);
+               context.commit('updateUser',null);
+           })
         },
-
 
         async loadSales(context) {
             let data = {
@@ -310,7 +331,7 @@ const store = new Vuex.Store({
             });
         },
 
-        async createSale (context, sale) {
+        async createSale(context, sale) {
             // console.log(sale,"Salll")
             let data = {
                 url: "/sale",

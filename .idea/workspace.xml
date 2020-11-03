@@ -3,10 +3,40 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/CableTech.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CableTech.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/LogIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/LogIn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Sales.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Sales.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/VuexStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/VuexStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/bak.login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,10 +192,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SRMS8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SRMS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -198,12 +228,30 @@
       <workItem from="1601983462656" duration="16103000" />
       <workItem from="1602104506592" duration="2140000" />
       <workItem from="1602246219291" duration="101000" />
-      <workItem from="1602246344872" duration="6476000" />
+      <workItem from="1602246344872" duration="7019000" />
+      <workItem from="1602498090999" duration="728000" />
+      <workItem from="1602501578097" duration="2902000" />
+      <workItem from="1602753733284" duration="634000" />
+      <workItem from="1602755326739" duration="3782000" />
+      <workItem from="1602865466149" duration="1069000" />
+      <workItem from="1603726254003" duration="234000" />
+      <workItem from="1604260635286" duration="25790000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="328" y="35" key="#CLI_Interpreters" timestamp="1601389376873">
@@ -223,11 +271,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="459" y="296" key="ComposerInitDialogKey/0.0.1366.768@0.0.1366.768" timestamp="1601339428419" />
-    <state x="1847" y="157" key="FileChooserDialogImpl" timestamp="1602256632374">
-      <screen x="1366" y="0" width="1600" height="900" />
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1604275365063">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="1847" y="157" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1602256632374" />
-    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1601425866615" />
+    <state x="411" y="134" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1366.768@0.0.1366.768" timestamp="1603726487024" />
+    <state x="1847" y="157" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1602499463094" />
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1604275365063" />
     <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1601314764713">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -244,10 +293,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1601314764713" />
+    <state x="517" y="307" key="NewPhpFileDialog" timestamp="1604267298518">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="517" y="307" key="NewPhpFileDialog/0.0.1366.768@0.0.1366.768" timestamp="1604267298518" />
+    <state x="303" y="204" key="Registry" timestamp="1604357826119">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="303" y="204" key="Registry/0.0.1366.768@0.0.1366.768" timestamp="1604357826119" />
     <state x="249" y="25" key="SettingsEditor" timestamp="1602011065310">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="249" y="25" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602011065310" />
+    <state x="0" y="0" width="1068" height="535" key="dock-window-1" timestamp="1604271660441">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="0" y="0" width="1068" height="535" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1604271660441" />
     <state x="1366" y="0" width="747" height="900" key="find.popup" timestamp="1602003375404">
       <screen x="1366" y="0" width="1600" height="900" />
     </state>
@@ -256,13 +317,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="400" y="155" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1601450815994" />
-    <state x="339" y="172" key="run.anything.popup" timestamp="1601407512764">
+    <state x="339" y="172" key="run.anything.popup" timestamp="1604270591628">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1601407512764" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601414343070">
+    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1604270591628" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604272793816">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601414343070" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604272793816" />
   </component>
 </project>

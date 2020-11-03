@@ -242,8 +242,8 @@ export default {
         },
 
         productName:function (id){
-            console.log(id)
-            return this.$store.getters.getProductById(id).name;
+            return this.$store.getters.getProductById(id);
+            // return this.$store.getters.getProductById(id).name;
         },
         initialize(){
             this.$store.dispatch('loadSales');

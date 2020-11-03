@@ -2,23 +2,24 @@
     <v-app>
 
         <v-navigation-drawer
-            app
+            v-if="isAuth"
             v-model="drawer"
+            app
         >
             <app-nav></app-nav>
-            <!--<template v-slot:append>
+            <template v-if="isAuth" v-slot:append>
                 <div class="pa-2">
                     <v-btn block @click="logout">
                         Logout
                     </v-btn>
                 </div>
-            </template>-->
+            </template>
         </v-navigation-drawer>
 
-        <v-app-bar app class="amber">
+        <v-app-bar app class="teal darken-4" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-toolbar-title>{{pageName}}</v-toolbar-title>
+            <v-toolbar-title>{{ pageName }}</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -26,11 +27,9 @@
                 <v-icon>mdi-magnify</v-icon>
             </v-btn>
 
-            <v-btn icon >
+            <v-btn icon>
                 <v-icon>mdi-heart</v-icon>
             </v-btn>
-
-
 
 
             <!--<v-menu offset-y>
@@ -62,7 +61,7 @@
         </v-app-bar>
 
         <!-- Sizes your content based upon application components -->
-        <v-main >
+        <v-main>
 
             <!-- Provides the application the proper gutter -->
             <v-container fluid>
@@ -73,16 +72,17 @@
 
         </v-main>
         <v-footer
-            dark
-            app
             absolute
-            class="font-weight-medium purple"
+            app
+            class="font-weight-medium teal darken-2"
+            dark
         >
             <v-col
                 class="text-center"
                 cols="12"
             >
-                {{ new Date().getFullYear() }} — <strong><a href="https://www.facebook.com/brayce.ernest/">Powered By Ernest Brayce</a></strong>
+                {{ new Date().getFullYear() }} — <strong class="text--black"><a href="https://www.facebook.com/brayce.ernest/" class="darken-4">Powered By
+                Ernest Brayce</a></strong>
             </v-col>
         </v-footer>
     </v-app>
@@ -90,52 +90,71 @@
 </template>
 
 <script>
-import {loadSomething} from "../../helpers/loadSomething"
-import { mapState } from 'vuex'
-import vuetify from "../../helpers/vuetify";
-import store from "../../store/VuexStore";
+import {mapState} from 'vuex'
+
 export default {
-name: "MainApp",
+    name: "MainApp",
     data: () => ({
         drawer: null,
-        expandOnHover:false,
-        group:1,
-        mini:true,
+        expandOnHover: false,
+        group: 1,
+        mini: true,
     }),
-    computed:{
-        isMobile(){
+    props: {
+        pIsAuth: String,
+        pUser: String
+    },
+    computed: {
+        ...mapState(['isAuth']),
+        isMobile() {
             return this.$vuetify.breakpoint.mobile;
         },
-        isLoggedIn(){
+        isLoggedIn() {
             return this.$store.state.isAuth;
         },
-        user(){
+        user() {
             return this.$store.state.user;
         },
-        pageName(){
+        pageName() {
             return this.$route.name;
         }
     },
-    methods:{
-        logout(){
-            let vm = this;
-            let data = {
-                url:"/logout",
-            }
-            loadSomething(this,data).then(()=>{
-                vm.$router.push('/login')
-            })
+    methods: {
+        logout() {
+            this.$store.dispatch('logout')
         }
     },
     mounted() {
+        let to = this.$router.currentRoute.fullPath;
+        if (!!this.pUser) {
 
-        this.$store.dispatch('loadData');
+            this.$route.query.redirect = this.$router.currentRoute.name === "Login" ? "/":to;
+            let obj = JSON.parse(this.pUser);
+            this.$store.commit('updateUser', obj);
+            this.$store.dispatch('loadData');
+            this.$store.commit('updateIsAuth', !!this.pIsAuth)
 
+        }else {
+            if (this.$router.currentRoute.name !== "Login"){
+                let to = this.$router.currentRoute.fullPath
+                console.log(this.$route.fullPath)
+                this.$router.push({
+                    name:"Login",
+                    query: {redirect:to}
+                })
+            }
 
-        // if(!this.$store.state.isAuth){
-        //     // alert("here")
-        //     this.$store.dispatch('login');
-        // }
+        }
+    },
+    watch: {
+        isAuth(val) {
+            if (val) {
+                let to = this.$route.query.redirect;
+                this.$router.push(to || "/");
+            } else {
+                this.$router.push({name: "Login"})
+            }
+        }
     }
 
 }
