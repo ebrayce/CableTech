@@ -68,14 +68,17 @@ const store = new Vuex.Store({
             }
             Object.assign(state.products[index], product)
         },
-        deleteOneProduct(state, product) {
+        deleteOneProduct(state,product) {
             let index = -1;
+
             for (const prod of state.products) {
                 if (prod.id === product.id) {
                     index = state.products.indexOf(prod);
                 }
             }
+
             state.products.splice(index, 1);
+
         },
 
 
@@ -219,13 +222,33 @@ const store = new Vuex.Store({
                 url: "/data",
                 mode: "delete-product",
                 id: product.id,
-
             }
 
             loadSomething(context, data).then(res => {
                 context.commit('deleteOneProduct', product)
+
+
+                let itSales = context.state.sales.filter(sale=>{
+                    return sale.product_id === product.id;
+                })
+
+                let itPurchases = context.state.purchases.filter(purchase=>{
+                    return purchase.product_id === product.id;
+                })
+
+                // console.log(itSales,itPurchases)
+
+                itPurchases.forEach(purchase=>{
+                    context.commit('deleteOnePurchase',purchase)
+                })
+
+                itSales.forEach(sale=>{
+                    context.commit('deleteOneSale',sale)
+                })
+
                 showSuccessNotification("Product Deleted successfully.")
             }).catch(error => {
+                // console.log(error)
                 showErrorNotification()
             });
         },
@@ -414,7 +437,7 @@ const store = new Vuex.Store({
             }
 
             loadSomething(context, data).then(res => {
-                console.log(res)
+                // console.log(res)
                 context.commit('addToPurchases', res.purchase)
                 context.commit('updateOneProduct', res.product)
                 showSuccessNotification("Purchase created successfully.")

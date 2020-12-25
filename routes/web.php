@@ -27,7 +27,7 @@ Route::get('/gamiskah',function (){
 
     if(!\App\Models\User::where('email','admin@gmail.com')){
         $user = new \App\Models\User();
-        $user->name = "Admin";
+        $user->name = "Ernest Brayce";
         $user-> email = "admin@gmail.com";
         $user-> password = Hash::make("admin@123");
         $user->save();

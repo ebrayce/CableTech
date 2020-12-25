@@ -35,11 +35,11 @@ class SaleController extends Controller
 
     private function createSale(Request $request)
     {
+
+        $product = Product::findOrFail($request->product_id);
         $sale = new Sale();
         $sale = $this->fillSale($request, $sale);
         $sale->save();
-
-        $product = Product::findOrFail($request->product_id);
 
         $product->in_stock = $product->in_stock - $request->quantity;
 

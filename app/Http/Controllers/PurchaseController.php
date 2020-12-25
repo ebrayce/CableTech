@@ -35,11 +35,11 @@ class PurchaseController extends Controller
 
     private function createPurchase(Request $request)
     {
+        $product = Product::findOrFail($request->product_id);
         $purchase = new Purchase();
         $purchase = $this->fillPurchase($request, $purchase);
         $purchase->save();
 
-        $product = Product::findOrFail($request->product_id);
 
         $product->in_stock = $product->in_stock + $request->quantity;
         Product::saveProduct($product);

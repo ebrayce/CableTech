@@ -47,11 +47,9 @@
                                         md="12"
                                     >
                                         <v-autocomplete
-                                            class="amber"
-                                            dark
                                             v-model="select"
                                             :items="products"
-                                            :item-value="this"
+                                            item-value="id"
                                             item-text="name"
                                             dense
                                             filled
@@ -61,30 +59,19 @@
                                     <v-col
                                         cols="12"
                                         sm="6"
-                                        md="4"
+                                        md="6"
                                     >
                                         <v-text-field
-                                            readonly
                                             type="number"
                                             v-model.number="editedItem.price"
                                             label="Price"
                                         ></v-text-field>
                                     </v-col>
+
                                     <v-col
                                         cols="12"
                                         sm="6"
-                                        md="4"
-                                    >
-                                        <v-text-field
-                                            type="number"
-                                            v-model.number="editedItem.sold_at"
-                                            label="Sold At"
-                                        ></v-text-field>
-                                    </v-col>
-                                    <v-col
-                                        cols="12"
-                                        sm="6"
-                                        md="4"
+                                        md="6"
                                     >
                                         <v-text-field
                                             type="number"
@@ -122,13 +109,11 @@
                     max-width="500px"
                 >
                     <v-card>
-                        <v-card-title>
-                            <v-list>
-                                <v-list-item><span class="headline">{{ activeItem.description }}</span></v-list-item>
-                                <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
-                                <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
-                            </v-list>
-                        </v-card-title>
+                        <v-list>
+
+                            <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
+                            <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
+                        </v-list>
                     </v-card>
                 </v-dialog>
 
@@ -147,6 +132,7 @@
         <template v-slot:item.product="{ item }">
             {{productName(item.product_id)}}
         </template>
+
         <template v-slot:item.description="{ item }">
             <v-btn
                 class="mr-2"
@@ -175,6 +161,13 @@
             </v-sheet>
 
         </template>
+
+        <template v-slot:item.sold_at="{item}">
+            <v-sheet class="m-5">
+                GHC {{item.sold_at}}
+            </v-sheet>
+
+        </template>
     </v-data-table>
 </template>
 
@@ -192,23 +185,21 @@ export default {
         showingDescription:false,
         headers: [
             { text: 'Product', value: 'product' },
+            { text: 'Sold At', value: 'sold_at' },
             { text: 'Price', value: 'price' },
-            { text: 'Sold At', value: 'sold_at',  },
             { text: 'Quantity', value: 'quantity' },
-            { text: 'Description', value: 'description' },
             { text: 'Actions', value: 'actions', sortable: false },
+            { text: 'Description', value: 'description' },
         ],
 
         editedIndex: -1,
         editedItem: {
             price: 0,
-            sold_at: 0,
             quantity: 0,
             product_id: 0,
         },
         defaultItem: {
             price: 0,
-            sold_at: 0,
             quantity: 0,
             product_id: 0,
         },
@@ -240,18 +231,16 @@ export default {
             this.activeItem = item;
             this.showingDescription = true;
         },
-
         productName:function (id){
-            return this.$store.getters.getProductById(id);
-            // return this.$store.getters.getProductById(id).name;
+            return this.$store.getters.getProductById(id).name;
         },
         initialize(){
-            this.$store.dispatch('loadSales');
+            // this.$store.dispatch('loadPurchases');
         },
         /*editItem (item) {
 
             // console.log(item)
-            this.editedIndex = this.sales.indexOf(item)
+            this.editedIndex = this.purchases.indexOf(item)
             // this.select = item.product_id
             // console.log(item,"edit")
             //
@@ -265,7 +254,7 @@ export default {
         },*/
 
         deleteItem (item) {
-            // const index = this.sales.indexOf(item)
+            // const index = this.purchases.indexOf(item)
 
             confirm('Are you sure you want to delete this item?') && this.$store.dispatch('deleteSale',item)
         },
@@ -282,7 +271,7 @@ export default {
 
             if (this.editedIndex > -1) {
                 this.$store.dispatch('updateSale',this.editedItem);
-                // Object.assign(this.sales[this.editedIndex], this.editedItem)
+                // Object.assign(this.purchases[this.editedIndex], this.editedItem)
             } else {
                 this.$store.dispatch('createSale',this.editedItem)
             }

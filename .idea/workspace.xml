@@ -22,7 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="" />
+    <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/LogIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/LogIn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Purchases.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Purchases.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Sales.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Sales.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/VuexStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/VuexStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +187,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SRMS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -220,7 +230,12 @@
       <workItem from="1602755326739" duration="3782000" />
       <workItem from="1602865466149" duration="1069000" />
       <workItem from="1603726254003" duration="234000" />
-      <workItem from="1604260635286" duration="26180000" />
+      <workItem from="1604260635286" duration="27007000" />
+      <workItem from="1604409321060" duration="1787000" />
+      <workItem from="1604673428124" duration="1706000" />
+      <workItem from="1604693538962" duration="463000" />
+      <workItem from="1604697669333" duration="940000" />
+      <workItem from="1604701327420" duration="598000" />
     </task>
     <servers />
   </component>
@@ -237,6 +252,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="328" y="35" key="#CLI_Interpreters" timestamp="1601389376873">
@@ -256,12 +272,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="459" y="296" key="ComposerInitDialogKey/0.0.1366.768@0.0.1366.768" timestamp="1601339428419" />
-    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1604275365063">
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1604694001657">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="411" y="134" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1366.768@0.0.1366.768" timestamp="1603726487024" />
     <state x="1847" y="157" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1602499463094" />
-    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1604275365063" />
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1604694001657" />
     <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1601314764713">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -302,13 +318,15 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="400" y="155" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1601450815994" />
-    <state x="339" y="172" key="run.anything.popup" timestamp="1604270591628">
+    <state x="339" y="172" key="run.anything.popup" timestamp="1604415384355">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="339" y="172" key="run.anything.popup/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1604415384355" />
     <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1604270591628" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604272793816">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604673434850">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1604673434850" />
     <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604272793816" />
   </component>
 </project>

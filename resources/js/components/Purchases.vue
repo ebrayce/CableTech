@@ -110,7 +110,6 @@
                 >
                     <v-card>
                         <v-list>
-                            <v-list-item><span class="headline">{{ activeItem.description }}</span></v-list-item>
                             <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
                             <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
                         </v-list>

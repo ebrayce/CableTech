@@ -4,6 +4,7 @@
         <v-navigation-drawer
             v-if="isAuth"
             v-model="drawer"
+            bottom
             app
         >
             <app-nav></app-nav>
