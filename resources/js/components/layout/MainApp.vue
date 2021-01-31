@@ -10,14 +10,14 @@
             <app-nav></app-nav>
             <template v-if="isAuth" v-slot:append>
                 <div class="pa-2">
-                    <v-btn block @click="logout">
+                    <v-btn dark class="blue-grey" block @click="logout">
                         Logout
                     </v-btn>
                 </div>
             </template>
         </v-navigation-drawer>
 
-        <v-app-bar app class="teal darken-4" dark>
+        <v-app-bar app class="blue darken-4" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
             <v-toolbar-title>{{ pageName }}</v-toolbar-title>
@@ -75,15 +75,19 @@
         <v-footer
             absolute
             app
-            class="font-weight-medium teal darken-2"
+            class="font-weight-medium blue-grey darken-2"
             dark
         >
             <v-col
                 class="text-center"
                 cols="12"
             >
-                {{ new Date().getFullYear() }} — <strong class="text--black"><a href="https://www.facebook.com/brayce.ernest/" class="darken-4">Powered By
-                Ernest Brayce</a></strong>
+                {{ new Date().getFullYear() }} —
+<!--                <strong class="text&#45;&#45;black">-->
+<!--                    <a href="https://www.facebook.com/brayce.ernest/" class="darken-4">Powered By-->
+<!--                Ernest Brayce</a>-->
+<!--                </strong>-->
+                <strong>Powered by Richman</strong>
             </v-col>
         </v-footer>
     </v-app>
@@ -138,7 +142,7 @@ export default {
         }else {
             if (this.$router.currentRoute.name !== "Login"){
                 let to = this.$router.currentRoute.fullPath
-                console.log(this.$route.fullPath)
+                // console.log(this.$route.fullPath)
                 this.$router.push({
                     name:"Login",
                     query: {redirect:to}

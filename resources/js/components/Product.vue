@@ -1,4 +1,5 @@
 <template>
+
     <v-data-table
         :headers="headers"
         :items="products"
@@ -18,6 +19,7 @@
                 ></v-divider>
                 <v-spacer></v-spacer>
                 <v-dialog
+                    persistent
                     v-model="dialog"
                     max-width="500px"
                 >
@@ -39,62 +41,69 @@
 
                         <v-card-text>
                             <v-container>
-                                <v-row>
-                                    <v-col
-                                        cols="12"
-                                        sm="12"
-                                        md="12"
-                                    >
-                                        <v-text-field
-                                            v-model="editedItem.name"
-                                            label="Product name"
-                                        ></v-text-field>
-                                    </v-col>
-                                    <v-col
-                                        cols="12"
-                                        sm="6"
-                                        md="4"
-                                    >
-                                        <v-text-field
-                                            type="number"
-                                            v-model="editedItem.price"
-                                            label="Price"
-                                        ></v-text-field>
-                                    </v-col>
-                                    <v-col
-                                        cols="12"
-                                        sm="6"
-                                        md="4"
-                                    >
-                                        <v-text-field
-                                            type="number"
-                                            v-model.number="editedItem.in_stock"
-                                            label="In Stock"
-                                        ></v-text-field>
-                                    </v-col>
-                                    <v-col
-                                        cols="12"
-                                        sm="6"
-                                        md="4"
-                                    >
-                                        <v-text-field
-                                            type="number"
-                                            v-model.number="editedItem.min_stock"
-                                            label="Minimum Stock"
-                                        ></v-text-field>
-                                    </v-col>
-                                    <v-col
-                                        cols="12"
-                                        sm="12"
-                                        md="12"
-                                    >
-                                        <v-textarea
-                                            v-model="editedItem.description"
-                                            label="Description"
-                                        ></v-textarea>
-                                    </v-col>
+                                <v-form ref="form" v-model="validForm">
+                                    <v-row>
+                                        <v-col
+                                            cols="12"
+                                            sm="12"
+                                            md="12"
+                                        >
+                                            <v-text-field
+                                                :rules="[rules.required]"
+                                                v-model="editedItem.name"
+                                                label="Product name"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col
+                                            cols="12"
+                                            sm="6"
+                                            md="4"
+                                        >
+                                            <v-text-field
+                                                :rules="[rules.price]"
+                                                type="number"
+                                                v-model="editedItem.price"
+                                                label="Price"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col
+                                            cols="12"
+                                            sm="6"
+                                            md="4"
+                                        >
+                                            <v-text-field
+                                                :rules="[rules.inStock]"
+                                                type="number"
+                                                v-model.number="editedItem.in_stock"
+                                                label="In Stock f"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col
+                                            cols="12"
+                                            sm="6"
+                                            md="4"
+                                        >
+                                            <v-text-field
+                                                :rules="[rules.minStock]"
+                                                type="number"
+                                                v-model.number="editedItem.min_stock"
+                                                label="Minimum Stock"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col
+                                            cols="12"
+                                            sm="12"
+                                            md="12"
+                                        >
+                                            <v-textarea
+                                                v-model="editedItem.description"
+                                                label="Description"
+                                            ></v-textarea>
+                                        </v-col>
 
-                                </v-row>
+                                    </v-row>
+                                </v-form>
+
                             </v-container>
                         </v-card-text>
 
@@ -119,6 +128,172 @@
                 </v-dialog>
 
                 <v-dialog
+                    v-model="showProductImages"
+                    persistent
+                >
+                    <v-card>
+                        <v-container >
+                            <div v-if="addingImages" class="pa-12">
+                                <v-file-input
+                                    v-model="addingImageFiles"
+                                    @change="addImages"
+                                    accept="image/*"
+                                    multiple
+                                    label="Add Images"
+                                    prepend-icon="mdi-camera"
+                                ></v-file-input>
+
+                                <div>
+                                    <v-row dense>
+                                        <v-col
+                                            v-for="(image,index ) in addedImages"
+                                            :key="index"
+                                            cols="12"
+                                            sm="6"
+                                            md="4"
+                                            lg="3"
+                                        >
+                                            <v-card>
+                                                <v-img
+                                                    :src="getUrl(image)"
+                                                    class="white--text align-end"
+                                                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                                                    height="200px"
+                                                >
+                                                    <!--                                                <v-card-title   v-text="card.title"></v-card-title>-->
+                                                </v-img>
+
+                                                <v-card-actions>
+                                                    <v-spacer></v-spacer>
+
+
+                                                    <v-tooltip bottom>
+                                                        <template v-slot:activator="{ on, attrs }">
+                                                            <v-btn
+                                                                @click="removeImage(image)"
+                                                                color="secondary"
+                                                                dark
+                                                                v-bind="attrs"
+                                                                v-on="on"
+                                                            >
+                                                                <v-icon class="">mdi-delete</v-icon>
+                                                            </v-btn>
+                                                        </template>
+                                                        <span>Remove Image</span>
+                                                    </v-tooltip>
+                                                    <!--<v-btn icon title="Remove Image">
+                                                        <v-icon class="">mdi-delete</v-icon>
+                                                    </v-btn>-->
+
+                                                    <!--<v-btn icon>
+                                                        <v-icon>mdi-share-variant</v-icon>
+                                                    </v-btn>-->
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+                                    </v-row>
+                                </div>
+
+
+                            </div>
+
+                            <div v-else-if="productImages.length === 0">
+                                <v-sheet class="text-center pa-12">
+                                    <h3>NO Images</h3>
+
+                                    <v-btn @click="showAddingImages">Add Images</v-btn>
+                                </v-sheet>
+                            </div>
+
+                            <v-row v-else dense>
+                                <v-col
+                                    v-for="image in productImages"
+                                    :key="image.id"
+                                    cols="12"
+                                    sm="6"
+                                    md="4"
+                                    lg="3"
+                                >
+                                    <v-card>
+                                        <v-img
+                                            :src="image.thumbnail"
+                                            class="white--text align-end"
+                                            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                                            height="200px"
+                                        >
+<!--                                                <v-card-title   v-text="card.title"></v-card-title>-->
+
+                                            <template v-slot:placeholder>
+                                                <v-row
+                                                    class="fill-height ma-0"
+                                                    align="center"
+                                                    justify="center"
+                                                >
+                                                    <v-progress-circular
+                                                        indeterminate
+                                                        color="grey lighten-5"
+                                                    ></v-progress-circular>
+                                                </v-row>
+                                            </template>
+                                        </v-img>
+<!-- Uploading Image card -->
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+
+                                            <v-btn icon @click="deleteProductImage(image.id)">
+                                                <v-icon class="">mdi-delete</v-icon>
+                                            </v-btn>
+
+<!--                                            <v-btn icon>
+                                                <v-icon>mdi-bookmark</v-icon>
+                                            </v-btn>
+
+                                            <v-btn icon>
+                                                <v-icon>mdi-share-variant</v-icon>
+                                            </v-btn>-->
+                                        </v-card-actions>
+                                    </v-card>
+                                </v-col>
+                            </v-row>
+                        </v-container>
+                        <v-card-actions>
+
+                            <v-btn
+                                text
+                                color="gray"
+                                v-if="addingImages && addedImages.length>0"
+                                @click="removeAllImages">
+                                Clear all
+                            </v-btn>
+
+                            <v-spacer></v-spacer>
+
+                            <v-btn v-if="addingImages && addedImages.length>0" color="green" text @click="uploadImages">
+                                Upload Image
+                            </v-btn>
+<!--                            <v-btn @click="closeAddingImages">Cancel</v-btn>-->
+                            <v-btn
+                                v-if="!addingImages"
+                                color="orange"
+                                text
+                                @click="showAddingImages"
+                            >
+                                Select Images
+
+                            </v-btn>
+
+                            <v-btn
+                                color="orange"
+                                text
+                                @click="closeImages"
+                            >
+                                Close
+                            </v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
+
+                <v-dialog
                     v-model="showingDescription"
                     max-width="500px"
                 >
@@ -129,9 +304,6 @@
                                 <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
                                 <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
                             </v-list>
-
-
-
                         </v-card-title>
                     </v-card>
                 </v-dialog>
@@ -161,6 +333,13 @@
 
 
         </template>
+
+        <template class="mdi-image" v-slot:item.images="{ item }">
+            <v-btn @click="showImages(item)">
+                <v-icon>mdi-image</v-icon>
+            </v-btn>
+        </template>
+
         <template v-slot:item.is_out_stock="{ item }">
             <v-chip
                 :color="item.is_out_stock ? 'red' : 'green'"
@@ -206,11 +385,31 @@
 export default {
     name: "Product",
     data: () => ({
+        validForm:true,
+
         activeItem:{
             description:""
         },
+        rules:{
+            required: value => !!value || 'Required.',
+            price: value => value > 0 || 'Invalid Price.',
+            quantity: value => value >= 1 || 'Invalid Quantity',
+            minStock: value => value >= 0 || 'Invalid Min Stock',
+            inStock: value => value >= 0 || 'Invalid In Stock',
+
+        },
         dialog: false,
         showingDescription:false,
+
+        activeProductImages:[],
+        showProductImages:false,
+        productImages:[],
+
+        addingImages:false,
+        addingImageFiles:[],
+        addedImages:[],
+
+
         headers: [
             {
                 text: 'Product Name',
@@ -224,6 +423,7 @@ export default {
             { text: 'Low Stock', value: 'is_low_stock' },
             { text: 'Out Of Stock', value: 'is_out_stock' },
             { text: 'Description', value: 'description', sortable: false },
+            { text: 'Images', value: 'images', sortable: false },
             { text: 'Actions', value: 'actions', sortable: false },
         ],
 
@@ -247,20 +447,103 @@ export default {
             is_out_stock: false,
             is_low_stock: false,
             img_name: "",
+
         },
     }),
     watch: {
         dialog (val) {
             val || this.close()
         },
+
         showingDescription (val) {
-            val || this.close()
+            // val || this.close()
         },
     },
     mounted () {
         // this.initialize()
     },
     methods:{
+        deleteProductImage(imageId){
+            let productId = this.products[this.editedIndex].id
+            let payload = {
+                mode:"delete-image",
+                product_id:productId,
+                image_id:imageId,
+                url:'/data',
+            }
+
+            this.$store.dispatch('removeProductImage', payload).then(()=>{
+                this.$swal({
+                    icon:'success',
+                    position:'top-right',
+                    title:"Successful",
+                    showConfirmButton:false,
+                    timer:1000
+                })
+            })
+        },
+        uploadImages(){
+            let load = {}
+            load.images = this.addedImages;
+
+            load.productId = this.products[this.editedIndex].id;
+
+            this.$store.dispatch('uploadProductImages', load).then(()=>{
+                this.$swal({
+                    icon:'success',
+                    position:'top-right',
+                    title:"Successful",
+                    showConfirmButton:false,
+                    timer:1000
+                })
+                this.removeAllImages();
+                this.addingImages = false;
+
+            })
+
+        },
+        removeImage(image){
+            let index = this.addedImages.indexOf(image);
+            this.addedImages.splice(index, 1)
+        },
+        removeAllImages(){
+            this.addedImages = [];
+        },
+        getUrl(file){
+            return URL.createObjectURL(file);
+        },
+
+        addImages(){
+
+            //    Add the uploaded files to the addedImages variable
+            this.addedImages = this.addedImages.concat(this.addingImageFiles);
+
+            //    Empty the file input for more selections
+            this.addingImageFiles = [];
+        },
+
+        showAddingImages(){
+            this.addingImages = true;
+        },
+        closeAddingImages(){
+            this.addingImages = false;
+        },
+
+        showImages(item){
+
+            this.editedIndex = this.products.indexOf(item)
+
+            this.productImages = item.images;
+
+            // this.productImages = item.images;
+            this.showProductImages = true;
+        },
+        closeImages(){
+            this.showProductImages = false;
+            this.productImages = [];
+            this.addingImages = false;
+        },
+
         showDescription(item){
             this.activeItem = item;
             this.showingDescription = true;
@@ -286,17 +569,22 @@ export default {
                 this.editedItem = Object.assign({}, this.defaultItem)
                 this.editedIndex = -1
             })
+            this.$refs.form.reset();
+            this.$refs.form.resetValidation();
         },
 
         save () {
-
-            if (this.editedIndex > -1) {
-                this.$store.dispatch('updateProduct',this.editedItem);
-                // Object.assign(this.products[this.editedIndex], this.editedItem)
-            } else {
-                this.$store.dispatch('createProduct',this.editedItem)
+            this.$refs.form.validate();
+            if (this.validForm){
+                if (this.editedIndex > -1) {
+                    this.$store.dispatch('updateProduct',this.editedItem);
+                    // Object.assign(this.products[this.editedIndex], this.editedItem)
+                } else {
+                    this.$store.dispatch('createProduct',this.editedItem)
+                }
+                this.close()
             }
-            this.close()
+
         },
     },
     computed:{

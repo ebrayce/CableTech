@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SaleController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,15 +26,15 @@ Route::post('/user',function (){
 
 Route::get('/gamiskah',function (){
 
-    if(!\App\Models\User::where('email','admin@gmail.com')){
-        $user = new \App\Models\User();
+    if(User::where('email','admin@gmail.com')->count() == 0){
+        $user = new User();
         $user->name = "Ernest Brayce";
         $user-> email = "admin@gmail.com";
         $user-> password = Hash::make("admin@123");
         $user->save();
-        return redirect('/');
+        return "Done";
     }else{
-        return redirect('/');
+        return "Exist";
     }
 
 });

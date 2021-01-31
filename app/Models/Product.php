@@ -16,10 +16,19 @@ class Product extends Model
         'is_out_stock' => 'boolean'
     ];
 
+    protected $with = [
+        'images'
+    ];
+
     protected $appends = [
         'date',
         'fromNow'
     ];
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 
     public static function saveProduct(Product $product){
         $product->is_out_stock = $product->in_stock == 0;
@@ -30,6 +39,7 @@ class Product extends Model
     public function purchases(){
         return $this->hasMany(Purchase::class);
     }
+
 
     public function sales()
     {

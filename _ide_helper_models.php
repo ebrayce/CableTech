@@ -25,6 +25,10 @@ namespace App\Models{
  * @property bool $is_out_stock
  * @property bool $is_low_stock
  * @property string|null $img_name
+ * @property-read mixed $date
+ * @property-read mixed $from_now
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProductImage[] $images
+ * @property-read int|null $images_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Purchase[] $purchases
  * @property-read int|null $purchases_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Sale[] $sales
@@ -49,6 +53,32 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\ProductImage
+ *
+ * @property int $id
+ * @property string $name
+ * @property int $product_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $original
+ * @property-read mixed $square
+ * @property-read mixed $thumbnail
+ * @property-read mixed $web
+ * @property-read \App\Models\Product $product
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductImage newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductImage newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductImage query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductImage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductImage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductImage whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductImage whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductImage whereUpdatedAt($value)
+ */
+	class ProductImage extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Purchase
  *
  * @property int $id
@@ -57,6 +87,8 @@ namespace App\Models{
  * @property int $quantity
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $date
+ * @property-read mixed $from_now
  * @property-read \App\Models\Product $product
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase newQuery()
@@ -82,6 +114,8 @@ namespace App\Models{
  * @property float $price
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $date
+ * @property-read mixed $from_now
  * @property-read \App\Models\Product $product
  * @method static \Illuminate\Database\Eloquent\Builder|Sale newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sale newQuery()

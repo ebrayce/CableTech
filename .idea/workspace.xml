@@ -23,15 +23,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CableTech.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CableTech.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_001121_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_001121_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_155439_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_155439_create_sales_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_155501_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_155501_create_purchases_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/LogIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/LogIn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Product.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Purchases.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Purchases.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Sales.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Sales.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/NavigationDrawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/NavigationDrawer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/VuexStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/VuexStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +199,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
     </include_path>
   </component>
   <component name="ProjectId" id="1i9FkiGKZiiGOUOZdcibebXVr90" />
@@ -187,20 +214,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Console" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Development\CableTech\resources\js\components" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Development\CableTech\app\Console" />
       <recent name="C:\xampp\htdocs\Development\CableTech\app\Trait" />
       <recent name="C:\xampp\htdocs\Development\CableTech\public" />
       <recent name="C:\xampp\htdocs\Development\CableTech\resources\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Development\CableTech\resources\js\components" />
     </key>
   </component>
   <component name="RunManager">
@@ -236,6 +264,7 @@
       <workItem from="1604693538962" duration="463000" />
       <workItem from="1604697669333" duration="940000" />
       <workItem from="1604701327420" duration="598000" />
+      <workItem from="1611993064263" duration="3810000" />
     </task>
     <servers />
   </component>
@@ -255,45 +284,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="328" y="35" key="#CLI_Interpreters" timestamp="1601389376873">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="328" y="35" key="#CLI_Interpreters/0.0.1366.768@0.0.1366.768" timestamp="1601389376873" />
-    <state x="455" y="185" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601983708623">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="455" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1601983708623" />
-    <state x="455" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1601396395482" />
-    <state x="413" y="138" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601413529100">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="413" y="138" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1601413529100" />
-    <state x="459" y="296" key="ComposerInitDialogKey" timestamp="1601339428419">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="459" y="296" key="ComposerInitDialogKey/0.0.1366.768@0.0.1366.768" timestamp="1601339428419" />
-    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1604694001657">
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1612028912234">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="411" y="134" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1366.768@0.0.1366.768" timestamp="1603726487024" />
-    <state x="1847" y="157" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1602499463094" />
-    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1604694001657" />
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1601314764713">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601314764713" />
-    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1601314764713">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1601314764713" />
-    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1601314764712">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1601314764712" />
-    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1601314764713">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1601314764713" />
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1612028912234" />
     <state x="517" y="307" key="NewPhpFileDialog" timestamp="1604267298518">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -302,22 +297,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="303" y="204" key="Registry/0.0.1366.768@0.0.1366.768" timestamp="1604357826119" />
-    <state x="249" y="25" key="SettingsEditor" timestamp="1602011065310">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="249" y="25" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602011065310" />
     <state x="0" y="0" width="1068" height="535" key="dock-window-1" timestamp="1604271660441">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="0" y="0" width="1068" height="535" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1604271660441" />
-    <state x="1366" y="0" width="747" height="900" key="find.popup" timestamp="1602003375404">
-      <screen x="1366" y="0" width="1600" height="900" />
-    </state>
-    <state x="1366" y="0" width="747" height="900" key="find.popup/0.0.1366.768/1366.0.1600.900@1366.0.1600.900" timestamp="1602003375404" />
-    <state x="400" y="155" key="refactoring.ChangeSignatureDialog" timestamp="1601450815994">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="400" y="155" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1601450815994" />
     <state x="339" y="172" key="run.anything.popup" timestamp="1604415384355">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

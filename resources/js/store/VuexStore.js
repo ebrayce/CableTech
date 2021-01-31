@@ -68,6 +68,16 @@ const store = new Vuex.Store({
             }
             Object.assign(state.products[index], product)
         },
+        updateOneProductImages(state, payload) {
+            console.log(payload)
+            let index = state.products.findIndex(prod=>{
+                return prod.id === payload.productId;
+            })
+            if (index>-1){
+                state.products[index].images = payload.images;
+            }
+
+        },
         deleteOneProduct(state,product) {
             let index = -1;
 
@@ -151,6 +161,51 @@ const store = new Vuex.Store({
                         context.dispatch('pageExpired');
                     }
 
+                    reject(error)
+                })
+            })
+        },
+
+        uploadProductImages(context, payload)
+        {
+            let info = {}
+            info.url = "";
+            info.mode = "upload-image";
+
+
+
+            let form = new FormData();
+            payload.images.forEach(file=>{
+                form.append('files[]', file)
+            })
+
+            form.append('product_id', payload.productId)
+            form.append('mode', 'upload-image')
+
+            return new Promise((resolve, reject) => {
+                axios.post('/data', form).then(res => {
+                    resolve(res)
+                }).catch(error =>{
+                    reject(error)
+                    }
+                )
+            })
+
+
+            // context.dispatch('loadPost', )
+        },
+
+        removeProductImage(context, payload){
+            return new Promise((resolve, reject) => {
+                context.dispatch("loadPost", payload).then(res=>{
+                    // Update that product images with new images
+                    let pl = {
+                        images:res.data,
+                        productId:payload.product_id
+                    }
+                   context.commit('updateOneProductImages', pl)
+                    resolve(res)
+                }).catch(error=>{
                     reject(error)
                 })
             })
@@ -321,7 +376,7 @@ const store = new Vuex.Store({
                 url: "/sale",
                 mode: "update-sale",
                 id: sale.id,
-                price: sale.name,
+                price: sale.price,
                 sold_at: sale.sold_at,
                 quantity: sale.quantity,
                 product_id: sale.product_id,

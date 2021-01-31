@@ -1,7 +1,7 @@
 <template>
     <v-data-table
         :headers="headers"
-        :items="purchases"
+        :items="sales"
         sort-by="calories"
         class="elevation-1"
     >
@@ -10,7 +10,7 @@
             <v-toolbar
                 flat
             >
-                <v-toolbar-title>All Purchases</v-toolbar-title>
+                <v-toolbar-title>All Sales</v-toolbar-title>
                 <v-divider
                     class="mx-4"
                     inset
@@ -18,7 +18,6 @@
                 ></v-divider>
                 <v-spacer></v-spacer>
                 <v-dialog
-                    persistent
                     v-model="dialog"
                     max-width="500px"
                 >
@@ -30,7 +29,7 @@
                             v-bind="attrs"
                             v-on="on"
                         >
-                            Record Purchases
+                            Record Sales
                         </v-btn>
                     </template>
                     <v-card>
@@ -40,55 +39,61 @@
 
                         <v-card-text>
                             <v-container>
-                                <v-form ref="form" v-model="validForm">
-                                    <v-row>
+                                <v-row>
 
-                                        <v-col
-                                            cols="12"
-                                            sm="12"
-                                            md="12"
-                                        >
-                                            <v-autocomplete
-                                                :rules="[rules.required]"
-                                                v-model="editedItem.product_id"
-                                                :items="products"
-                                                item-value="id"
-                                                item-text="name"
-                                                dense
-                                                filled
-                                                label="Select Product"
-                                                @change="fillForm"
-                                            ></v-autocomplete>
-                                        </v-col>
-                                        <v-col
-                                            cols="12"
-                                            sm="6"
-                                            md="6"
-                                        >
-                                            <v-text-field
-                                                :rules="[rules.price]"
-                                                type="number"
-                                                v-model.number="editedItem.price"
-                                                label="Price"
-                                            ></v-text-field>
-                                        </v-col>
-
-                                        <v-col
-                                            cols="12"
-                                            sm="6"
-                                            md="6"
-                                        >
-                                            <v-text-field
-                                                :rules="[rules.required,rules.quantity]"
-                                                type="number"
-                                                v-model.number="editedItem.quantity"
-                                                label="Quantity"
-                                            ></v-text-field>
-                                        </v-col>
-                                        <v-input hidden v-model="editedItem.product_id"></v-input>
-                                    </v-row>
-                                </v-form>
-
+                                    <v-col
+                                        cols="12"
+                                        sm="12"
+                                        md="12"
+                                    >
+                                        <v-autocomplete
+                                            class="amber"
+                                            dark
+                                            v-model="select"
+                                            :items="products"
+                                            :item-value="this"
+                                            item-text="name"
+                                            dense
+                                            filled
+                                            label="Select Product"
+                                        ></v-autocomplete>
+                                    </v-col>
+                                    <v-col
+                                        cols="12"
+                                        sm="6"
+                                        md="4"
+                                    >
+                                        <v-text-field
+                                            readonly
+                                            type="number"
+                                            v-model.number="editedItem.price"
+                                            label="Price"
+                                        ></v-text-field>
+                                    </v-col>
+                                    <v-col
+                                        cols="12"
+                                        sm="6"
+                                        md="4"
+                                    >
+                                        <v-text-field
+                                            type="number"
+                                            v-model.number="editedItem.sold_at"
+                                            label="Sold At"
+                                        ></v-text-field>
+                                    </v-col>
+                                    <v-col
+                                        cols="12"
+                                        sm="6"
+                                        md="4"
+                                    >
+                                        <v-text-field
+                                            type="number"
+                                            v-model.number="editedItem.quantity"
+                                            label="Quantity"
+                                        ></v-text-field>
+                                    </v-col>
+                                    <v-input hidden v-model="editedItem.product_id"></v-input>
+                                </v-row>
                             </v-container>
                         </v-card-text>
 
@@ -117,10 +122,13 @@
                     max-width="500px"
                 >
                     <v-card>
-                        <v-list>
-                            <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
-                            <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
-                        </v-list>
+                        <v-card-title>
+                            <v-list>
+                                <v-list-item><span class="headline">{{ activeItem.description }}</span></v-list-item>
+                                <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
+                                <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
+                            </v-list>
+                        </v-card-title>
                     </v-card>
                 </v-dialog>
 
@@ -137,9 +145,9 @@
         </template>
 
         <template v-slot:item.product="{ item }">
-            {{productName(item.product_id)}}
+            {{item.product_id}}
+<!--            {{productName(item.product_id)}}-->
         </template>
-
         <template v-slot:item.description="{ item }">
             <v-btn
                 class="mr-2"
@@ -173,25 +181,20 @@
 
 <script>
 export default {
-    name: "Purchases",
+    name: "Sales",
     data: () => ({
-        validForm:true,
         select:null,
         items:[],
         loading:false,
         activeItem:{
             description:""
         },
-        rules:{
-            required: value => !!value || 'Required.',
-            price: value => value >= 1 || 'Invalid Price.',
-            quantity: value => value >= 1 || 'Invalid Quantity',
-        },
         dialog: false,
         showingDescription:false,
         headers: [
             { text: 'Product', value: 'product' },
             { text: 'Price', value: 'price' },
+            { text: 'Sold At', value: 'sold_at',  },
             { text: 'Quantity', value: 'quantity' },
             { text: 'Description', value: 'description' },
             { text: 'Actions', value: 'actions', sortable: false },
@@ -200,11 +203,13 @@ export default {
         editedIndex: -1,
         editedItem: {
             price: 0,
+            sold_at: 0,
             quantity: 0,
             product_id: 0,
         },
         defaultItem: {
             price: 0,
+            sold_at: 0,
             quantity: 0,
             product_id: 0,
         },
@@ -237,15 +242,16 @@ export default {
             this.showingDescription = true;
         },
         productName:function (id){
-            return this.$store.getters.getProductById(id).name;
+            return this.$store.getters.getProductById(id);
+            // return this.$store.getters.getProductById(id).name;
         },
         initialize(){
-            // this.$store.dispatch('loadPurchases');
+            this.$store.dispatch('loadSales');
         },
-        editItem (item) {
+        /*editItem (item) {
 
             // console.log(item)
-            this.editedIndex = this.purchases.indexOf(item)
+            this.editedIndex = this.sales.indexOf(item)
             // this.select = item.product_id
             // console.log(item,"edit")
             //
@@ -256,10 +262,12 @@ export default {
             this.select = item;
 
             this.dialog = true
-        },
+        },*/
 
         deleteItem (item) {
-            confirm('Are you sure you want to delete this item?') && this.$store.dispatch('deletePurchase',item)
+            // const index = this.sales.indexOf(item)
+
+            confirm('Are you sure you want to delete this item?') && this.$store.dispatch('deleteSale',item)
         },
 
         close () {
@@ -268,41 +276,25 @@ export default {
                 this.editedItem = Object.assign({}, this.defaultItem)
                 this.editedIndex = -1
             })
-            this.$refs.form.reset();
-            this.$refs.form.resetValidation();
         },
 
         save () {
 
-            this.$refs.form.validate();
-            if (this.validForm){
-                if (this.editedIndex > -1) {
-                    this.$store.dispatch('updatePurchase',this.editedItem);
-                    // Object.assign(this.purchases[this.editedIndex], this.editedItem)
-                } else {
-                    this.$store.dispatch('createPurchase',this.editedItem)
-                }
-                this.close()
+            if (this.editedIndex > -1) {
+                this.$store.dispatch('updateSale',this.editedItem);
+                // Object.assign(this.sales[this.editedIndex], this.editedItem)
+            } else {
+                this.$store.dispatch('createSale',this.editedItem)
             }
-
+            this.close()
         },
-        fillForm(val){
-            if (this.editedIndex === -1){
-                let product = this.products.find(prod=>{
-                    return prod.id === val;
-                })
-                this.editedItem.price = product.price;
-                this.editedItem.sold_at = product.price;
-
-            }
-        }
     },
     computed:{
-        purchases(){
-            return this.$store.state.purchases;
+        sales(){
+            return this.$store.state.sales;
         },
         formTitle () {
-            return this.editedIndex === -1 ? 'Record Purchase' : 'Edit Purchases'
+            return this.editedIndex === -1 ? 'Record Sale' : 'Edit Sales'
         },
         products(){
             return this.$store.state.products;

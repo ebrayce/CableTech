@@ -15,7 +15,7 @@ class CreateSalesTable extends Migration
     public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->id();
+            $table->smallIncrements('id');
             $table->foreignIdFor(Product::class);
             $table->integer('quantity');
             $table->double('sold_at');

@@ -15,7 +15,7 @@ class CreatePurchasesTable extends Migration
     public function up()
     {
         Schema::create('purchases', function (Blueprint $table) {
-            $table->id();
+            $table->smallIncrements('id');
             $table->foreignIdFor(Product::class);
             $table->double('price');
             $table->integer('quantity');

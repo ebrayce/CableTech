@@ -20,6 +20,7 @@
                 <v-dialog
                     v-model="dialog"
                     max-width="500px"
+                    persistent
                 >
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn
@@ -38,49 +39,69 @@
                         </v-card-title>
 
                         <v-card-text>
+
                             <v-container>
-                                <v-row>
+                                <v-form ref="form" v-model="validForm">
+                                    <v-row>
 
-                                    <v-col
-                                        cols="12"
-                                        sm="12"
-                                        md="12"
-                                    >
-                                        <v-autocomplete
-                                            v-model="select"
-                                            :items="products"
-                                            item-value="id"
-                                            item-text="name"
-                                            dense
-                                            filled
-                                            label="Select Product"
-                                        ></v-autocomplete>
-                                    </v-col>
-                                    <v-col
-                                        cols="12"
-                                        sm="6"
-                                        md="6"
-                                    >
-                                        <v-text-field
-                                            type="number"
-                                            v-model.number="editedItem.price"
-                                            label="Price"
-                                        ></v-text-field>
-                                    </v-col>
+                                        <v-col
+                                            cols="12"
+                                            md="12"
+                                            sm="12"
+                                        >
+                                            <v-autocomplete
+                                                :rules="[rules.required]"
+                                                v-model="editedItem.product_id"
+                                                :items="products"
+                                                dense
+                                                filled
+                                                item-text="name"
+                                                item-value="id"
+                                                label="Select Product"
+                                                @change="fillForm"
+                                            ></v-autocomplete>
+                                        </v-col>
+                                        <v-col
+                                            cols="12"
+                                            md="6"
+                                            sm="6"
+                                        >
+                                            <v-text-field
+                                                :rules="[rules.price]"
+                                                v-model.number="editedItem.price"
+                                                label="Price"
+                                                type="number"
+                                            ></v-text-field>
+                                        </v-col>
 
-                                    <v-col
-                                        cols="12"
-                                        sm="6"
-                                        md="6"
-                                    >
-                                        <v-text-field
-                                            type="number"
-                                            v-model.number="editedItem.quantity"
-                                            label="Quantity"
-                                        ></v-text-field>
-                                    </v-col>
-                                    <v-input hidden v-model="editedItem.product_id"></v-input>
-                                </v-row>
+                                        <v-col
+                                            cols="12"
+                                            md="6"
+                                            sm="6"
+                                        >
+                                            <v-text-field
+                                                :rules="[rules.price]"
+                                                v-model.number="editedItem.sold_at"
+                                                label="Sold At"
+                                                type="number"
+                                            ></v-text-field>
+                                        </v-col>
+
+                                        <v-col
+                                            cols="12"
+                                            md="6"
+                                            sm="6"
+                                        >
+                                            <v-text-field
+                                                :rules="[rules.quantity]"
+                                                v-model.number="editedItem.quantity"
+                                                label="Quantity"
+                                                type="number"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-input v-model="editedItem.product_id" hidden></v-input>
+                                    </v-row>
+                                </v-form>
                             </v-container>
                         </v-card-text>
 
@@ -97,6 +118,7 @@
                                 color="blue darken-1"
                                 text
                                 @click="save"
+
                             >
                                 Save
                             </v-btn>
@@ -126,6 +148,12 @@
                 @click="deleteItem(item)"
             >
                 mdi-delete
+            </v-icon>
+            <v-icon
+                small
+                @click="editItem(item)"
+            >
+                mdi-pencil
             </v-icon>
         </template>
 
@@ -175,6 +203,7 @@
 export default {
     name: "Sales",
     data: () => ({
+        validForm:true,
         select:null,
         items:[],
         loading:false,
@@ -191,17 +220,24 @@ export default {
             { text: 'Actions', value: 'actions', sortable: false },
             { text: 'Description', value: 'description' },
         ],
+        rules:{
+            required: value => !!value || 'Required.',
+            price: value => value > 0 || 'Invalid Price.',
+            quantity: value => value >= 1 || 'Invalid Quantity',
+        },
 
         editedIndex: -1,
         editedItem: {
             price: 0,
             quantity: 0,
             product_id: 0,
+            sold_at:0
         },
         defaultItem: {
             price: 0,
             quantity: 0,
             product_id: 0,
+            sold_at:0
         },
     }),
     watch: {
@@ -212,16 +248,6 @@ export default {
             val || this.close()
         },
 
-        select(prod){
-            let item = {
-                price:prod.price,
-                sold_at:prod.price,
-                quantity:0,
-                product_id:prod.id
-            }
-            this.editedItem = item;
-
-        }
     },
     mounted () {
         // this.initialize()
@@ -237,21 +263,15 @@ export default {
         initialize(){
             // this.$store.dispatch('loadPurchases');
         },
-        /*editItem (item) {
+        editItem (item) {
 
             // console.log(item)
-            this.editedIndex = this.purchases.indexOf(item)
-            // this.select = item.product_id
-            // console.log(item,"edit")
-            //
-            // this.editedItem = Object.assign({}, item)
+            this.editedIndex = this.sales.indexOf(item)
 
-            // this.editedItem = item.id;
-            // this.items.push(item);
-            this.select = item;
+            this.editedItem = Object.assign({}, item)
 
             this.dialog = true
-        },*/
+        },
 
         deleteItem (item) {
             // const index = this.purchases.indexOf(item)
@@ -265,18 +285,33 @@ export default {
                 this.editedItem = Object.assign({}, this.defaultItem)
                 this.editedIndex = -1
             })
+            this.$refs.form.reset();
+            this.$refs.form.resetValidation();
         },
 
         save () {
-
-            if (this.editedIndex > -1) {
-                this.$store.dispatch('updateSale',this.editedItem);
-                // Object.assign(this.purchases[this.editedIndex], this.editedItem)
-            } else {
-                this.$store.dispatch('createSale',this.editedItem)
+            this.$refs.form.validate();
+            if (this.validForm){
+                if (this.editedIndex > -1) {
+                    this.$store.dispatch('updateSale',this.editedItem);
+                    // Object.assign(this.purchases[this.editedIndex], this.editedItem)
+                } else {
+                    this.$store.dispatch('createSale',this.editedItem)
+                }
+                this.close()
             }
-            this.close()
         },
+        fillForm(val){
+            if (this.editedIndex === -1){
+                let product = this.products.find(prod=>{
+                    return prod.id === val;
+                })
+                console.log(product)
+                this.editedItem.price = product.price;
+                this.editedItem.sold_at = product.price;
+
+            }
+        }
     },
     computed:{
         sales(){

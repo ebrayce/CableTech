@@ -10,7 +10,7 @@
         <v-list>
             <v-list-item>
                 <v-list-item-avatar>
-                    <v-img src="/user.jpeg"></v-img>
+                    <v-img src="/logo.jpg"></v-img>
                 </v-list-item-avatar>
 
                 <v-list-item-content>

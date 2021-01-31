@@ -102,10 +102,12 @@ export default {
                             }
 
                         })
+
+
                     }
-                    // console.log("reason.response",reason.response)
-                    // console.log("reason.response.data",reason.response.data)
-                    // console.log("reason.response.data.message",reason.response.data.message)
+                    console.log("reason.response",reason.response)
+                    console.log("reason.response.data",reason.response.data)
+                    console.log("reason.response.data.message",reason.response.data.message)
                     this.$swal('Opps!',
                         reason.response.data.errors.email[0],
                         'error')

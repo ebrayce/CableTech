@@ -10,7 +10,8 @@ Vue.use(VueRouter);
 // We'll talk about nested routes later.
 
 const routes = [
-    { path: '/',component: require('../components/Home').default, name:"Home" },
+    { path: '/',component: require('../components/Home').default, name:"Home Page" },
+    // { path: '/admin',component: require('../components/Home').default, name:"Home" },
     { path: '/login',component: require('../components/LogIn').default, name: "Login" },
     { path: '/register',component: require('../components/Register').default, name: "Register" },
     { path: '/products',component: require('../components/Product').default, name: "Product" },
