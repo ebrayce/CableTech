@@ -67,7 +67,7 @@
             <!-- Provides the application the proper gutter -->
             <v-container fluid>
                 <!-- If using vue-router -->
-                <router-view></router-view>
+                <router-view @print="print"></router-view>
                 <vue-progress-bar></vue-progress-bar>
             </v-container>
 
@@ -127,6 +127,9 @@ export default {
     methods: {
         logout() {
             this.$store.dispatch('logout')
+        },
+        print(){
+            alert("Here")
         }
     },
     mounted() {

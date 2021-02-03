@@ -23,40 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CableTech.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CableTech.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_001121_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_001121_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_155439_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_155439_create_sales_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_155501_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_155501_create_purchases_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/LogIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/LogIn.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Product.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Purchases.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Purchases.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Sales.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Sales.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/NavigationDrawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/NavigationDrawer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/router/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/navigations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/VuexStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/VuexStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +42,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Blade" />
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -214,7 +185,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Console" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AmalitechErpBCk" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -264,7 +235,7 @@
       <workItem from="1604693538962" duration="463000" />
       <workItem from="1604697669333" duration="940000" />
       <workItem from="1604701327420" duration="598000" />
-      <workItem from="1611993064263" duration="3810000" />
+      <workItem from="1611993064263" duration="17602000" />
     </task>
     <servers />
   </component>
@@ -284,10 +255,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1612028912234">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="1829" y="138" key="FileChooserDialogImpl" timestamp="1612166116245">
+      <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="411" y="134" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1366.768@0.0.1366.768" timestamp="1603726487024" />
+    <state x="1829" y="138" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1366.768@1366.0.1366.768" timestamp="1612166116245" />
     <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1612028912234" />
     <state x="517" y="307" key="NewPhpFileDialog" timestamp="1604267298518">
       <screen x="0" y="0" width="1366" height="768" />

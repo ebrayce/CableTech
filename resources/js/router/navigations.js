@@ -13,18 +13,26 @@ let locations = [
         icon:"mdi-semantic-web"
 
     },{
-        id:2,
+        id:3,
         path:'/sales',
         name:'Sales',
         icon:"mdi-cash-plus"
 
-    },{
-        id:2,
+    },
+    {
+        id:4,
         path:'/purchases',
         name:'Purchases',
         icon:"mdi-cash-minus"
 
     },
+    {
+        id:5,
+        path:'/receipt',
+        name:'Receipt Generator',
+        icon:"mdi-file"
+
+    }
 
 
 ]
