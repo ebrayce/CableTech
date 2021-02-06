@@ -39,6 +39,8 @@ Vue.component('example-component', require('./components/ExampleComponent').defa
 Vue.component('login', require('./components/LogIn').default);
 Vue.component('main-app', require('./components/layout/MainApp.vue').default);
 Vue.component('app-nav', require('./components/layout/NavigationDrawer.vue').default);
+Vue.component('form-col', require('./components/slot/FormCol').default);
+Vue.component('four-col', require('./components/slot/FourInARow').default);
 // Vue.component('home', require('./components/Home').default);
 
 /**

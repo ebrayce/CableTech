@@ -1,9 +1,17 @@
 <template>
     <v-container>
         <v-btn @click="print">Print</v-btn>
-<!--        <v-divider></v-divider>-->
+        <!--        <v-divider></v-divider>-->
 
-        <v-text-field v-model="titles.items" placeholder="Title"></v-text-field>
+        <v-row>
+            <v-col>
+                <v-text-field v-model="titles.items" placeholder="Title"></v-text-field>
+            </v-col>
+            <v-col>
+                <v-text-field hint="850" :rules="[rules.price]" v-model.number="titles.labour" placeholder="Labour"></v-text-field>
+            </v-col>
+        </v-row>
+
         <v-form ref="form" v-model="isValid">
             <v-simple-table>
                 <template v-slot:default>
@@ -68,8 +76,7 @@
         </v-form>
 
 
-
-        <v-form class="mt-15" ref="packageForm" v-model="isPackageFormValid">
+        <v-form ref="packageForm" v-model="isPackageFormValid" class="mt-15">
             <v-text-field v-model="titles.packages" placeholder="Title"></v-text-field>
             <v-simple-table>
                 <template v-slot:default>
@@ -134,9 +141,10 @@ export default {
             isPackageFormValid: false,
             items: [],
             packages: [],
-            titles:{
-                items:"",
-                packages:""
+            titles: {
+                items: "",
+                labour: null,
+                packages: "Packages of Dstv"
             },
             formD: {
                 name: null,
@@ -205,10 +213,10 @@ export default {
             this.$refs.packageForm.resetValidation();
         },
 
-        print(){
+        print() {
             let d = {
-                titles:this.titles,
-                items:this.items,
+                titles: this.titles,
+                items: this.items,
                 packages: this.packages
             }
             this.$emit("print", d)

@@ -15,6 +15,7 @@ const routes = [
     { path: '/login',component: require('../components/LogIn').default, name: "Login" },
     { path: '/register',component: require('../components/Register').default, name: "Register" },
     { path: '/products',component: require('../components/Product').default, name: "Product" },
+    { path: '/customers',component: require('../components/CustomersComponent').default, name: "Customer" },
     { path: '/sales',component: require('../components/Sales').default, name: "Sales" },
     { path: '/purchases',component: require('../components/Purchases').default, name: "Purchases" },
     { path: '/receipt',component: require('../components/ReceiptComponent').default, name: "Receipt" },

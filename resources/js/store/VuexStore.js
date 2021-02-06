@@ -10,10 +10,8 @@ function showErrorNotification() {
         icon: 'error',
         title: 'Oops...',
         text: 'Something went wrong!',
-
     })
 }
-
 
 function showSuccessNotification(message = 'Product Updated successfully.', icon = 'success', position = 'top-end') {
     Vue.swal({
@@ -25,18 +23,29 @@ function showSuccessNotification(message = 'Product Updated successfully.', icon
     })
 }
 
-
 const store = new Vuex.Store({
     state: {
+        theme: {
+            primary: "blue darken-3",
+        },
         user: {
             name: 'Isaac Afful',
             email: '',
         },
+        loaded: {
+
+            customers: false,
+
+        },
+        customers: [],
         products: [],
         sales: [],
         purchases: [],
         isAuth: false,
         overview: {},
+        options:{
+            showAppBar:false,
+        },
     },
     mutations: {
 
@@ -51,6 +60,12 @@ const store = new Vuex.Store({
         },
         updateOverview(state, overview) {
             state.overview = overview;
+        },
+        hideAppBar(state){
+            state.options.showAppBar = false;
+        },
+        showAppBar(state){
+            state.options.showAppBar = true;
         },
 
         updateAllProducts(state, products) {
@@ -148,6 +163,35 @@ const store = new Vuex.Store({
             }
 
         },
+
+
+
+        //    For Customers
+        updateCustomers(state, customers) {
+            state.customers = customers;
+        },
+        addToCustomers(state, customer) {
+            state.customers.push(customer);
+        },
+        updateACustomer(state, customer) {
+            if (!!customer) {
+                let index = state.customers.findIndex(cus => {
+                    return cus.id === customer.id;
+                });
+                Object.assign(state.customers[index], customer);
+            }
+        },
+        removeACustomer(state, id) {
+            let index = state.customers.findIndex(cus => {
+                return cus.id === id;
+            });
+            state.customers.splice(index, 1)
+        },
+        customersLoaded(state) {
+            state.loaded.customers = true
+        },
+        //    End Customer
+
 
 
     },
@@ -500,6 +544,90 @@ const store = new Vuex.Store({
                 showErrorNotification()
             });
         },
+
+
+
+        loadACustomer(context, id) {
+
+            let info = {};
+            info.url = "/load-customers";
+            info.mode = "load-customer";
+            info.id = id;
+            return new Promise((resolve, reject) => {
+                context.dispatch("loadPost", info).then(res => {
+                    context.commit('addToCustomers', res.data)
+                    resolve()
+                }).catch(error => {
+                    reject(error)
+                })
+            })
+
+
+        },
+
+        //    Load Customers from db
+        loadCustomers(context) {
+
+            if (!context.state.loaded.customers) {
+                console.log("Here")
+                let info = {};
+                info.url = "/customers";
+                info.mode = "load-customers";
+                return new Promise((resolve, reject) => {
+                    context.dispatch("loadPost", info).then(res => {
+                        context.commit('updateCustomers', res.data)
+                        context.commit("customersLoaded")
+                        resolve()
+                    }).catch(error => {
+                        reject(error)
+                    })
+                })
+
+            }
+
+        },
+
+        //    Create Customer
+        handleCustomer(context, payload) {
+            let info = payload;
+
+            return new Promise((resolve, reject) => {
+
+                info.url = "/customers";
+
+                context.dispatch('loadPost', info).then(res => {
+                    if (info.mode === 'create-customer') {
+                        //    Created
+                        context.commit('addToCustomers', res.data)
+
+                    } else {
+                        //    Updated
+                        context.commit('updateACustomer', res.data)
+                    }
+                    resolve(res)
+                }).catch(err=>{
+                    reject(err)
+                })
+
+            })
+        },
+
+        //    Delete Customer
+        deleteCustomer(context, payload) {
+            let info = payload;
+            info.url = "/customers";
+            info.mode = "delete-customer";
+            return new Promise((resolve, reject) => {
+                context.dispatch("loadPost", info).then(() => {
+                    context.commit('removeACustomer', payload.id)
+                    resolve()
+
+                }).catch(error => {
+                    reject(error)
+                })
+            })
+        },
+
 
     },
     getters: {

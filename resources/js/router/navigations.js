@@ -8,6 +8,13 @@ let locations = [
     },
     {
         id:2,
+        path:'/customers',
+        name:'Customers',
+        icon:"mdi-account-supervisor-outline"
+
+    },
+    {
+        id:2,
         path:'/products',
         name:'Products',
         icon:"mdi-semantic-web"

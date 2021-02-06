@@ -42,7 +42,7 @@ Route::get('/gamiskah',function (){
 Route::post('/data', [ProductController::class,'index']);
 Route::post('/sale', [SaleController::class,'index']);
 Route::post('/purchase', [PurchaseController::class,'index']);
-
+Route::post('/customers',[App\Http\Controllers\CustomerController::class, 'index']);
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

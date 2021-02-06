@@ -12,6 +12,35 @@
 
 namespace App\Models{
 /**
+ * App\Models\Customer
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $phone
+ * @property string $account_num
+ * @property string $location
+ * @property string $expired_date
+ * @property float $amount_paid
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer whereAccountNum($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer whereAmountPaid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer whereExpiredDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer whereLocation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer whereUpdatedAt($value)
+ */
+	class Customer extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Product
  *
  * @property int $id

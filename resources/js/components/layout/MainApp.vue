@@ -2,13 +2,13 @@
     <v-app>
 
         <v-navigation-drawer
-            v-if="isAuth"
+            v-if="isLoggedIn &&  options.showAppBar"
             v-model="drawer"
             bottom
             app
         >
             <app-nav></app-nav>
-            <template v-if="isAuth" v-slot:append>
+            <template v-if="isLoggedIn" v-slot:append>
                 <div class="pa-2">
                     <v-btn dark class="blue-grey" block @click="logout">
                         Logout
@@ -17,7 +17,7 @@
             </template>
         </v-navigation-drawer>
 
-        <v-app-bar app class="blue darken-4" dark>
+        <v-app-bar app class="blue darken-4" dark  v-if="options.showAppBar">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
             <v-toolbar-title>{{ pageName }}</v-toolbar-title>
@@ -73,6 +73,7 @@
 
         </v-main>
         <v-footer
+            v-if="options.showAppBar"
             absolute
             app
             class="font-weight-medium blue-grey darken-2"
@@ -110,7 +111,7 @@ export default {
         pUser: String
     },
     computed: {
-        ...mapState(['isAuth']),
+        ...mapState(['isAuth','options']),
         isMobile() {
             return this.$vuetify.breakpoint.mobile;
         },
@@ -129,8 +130,18 @@ export default {
             this.$store.dispatch('logout')
         },
         print(){
-            alert("Here")
+            this.printReceipt();
+        },
+        printReceipt(){
+            this.drawer = false;
+            this.$store.commit('hideAppBar')
+            this.$nextTick(()=>{
+                window.print();
+                this.drawer = true;
+                this.$store.commit('showAppBar')
+            })
         }
+
     },
     mounted() {
         let to = this.$router.currentRoute.fullPath;
@@ -141,6 +152,7 @@ export default {
             this.$store.commit('updateUser', obj);
             this.$store.dispatch('loadData');
             this.$store.commit('updateIsAuth', !!this.pIsAuth)
+            this.$store.commit('showAppBar')
 
         }else {
             if (this.$router.currentRoute.name !== "Login"){
@@ -159,6 +171,7 @@ export default {
             if (val) {
                 let to = this.$route.query.redirect;
                 this.$router.push(to || "/");
+                this.$store.commit('showAppBar')
             } else {
                 this.$router.push({name: "Login"})
             }
