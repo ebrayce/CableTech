@@ -41,7 +41,10 @@ class StartUp extends Command
      */
     public function handle()
     {
-        Artisan::call('migrate:fresh');
+        if (config('app.env') === "local"){
+            Artisan::call('migrate:fresh');
+        }
+
 
 
         $this->comment("Creating Super Admin");

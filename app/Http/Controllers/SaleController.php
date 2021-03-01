@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Sale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class SaleController extends Controller
 {
     public function index(Request $request)
     {
+
+
         $mode = $request->mode;
         switch ($mode) {
             case 'load-sales':

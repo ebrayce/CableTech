@@ -24,19 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/GenerateReceiptItems.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/GenerateReceiptItems.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ReceiptComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ReceiptComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/navigations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/VuexStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/VuexStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CableTech.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +183,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -249,7 +238,13 @@
       <workItem from="1612518639660" duration="3145000" />
       <workItem from="1612523801915" duration="5289000" />
       <workItem from="1612538560820" duration="4210000" />
-      <workItem from="1612564863402" duration="8632000" />
+      <workItem from="1612564863402" duration="9747000" />
+      <workItem from="1612654362419" duration="345000" />
+      <workItem from="1612785142083" duration="245000" />
+      <workItem from="1612788931161" duration="3000" />
+      <workItem from="1612952182873" duration="3683000" />
+      <workItem from="1613031361808" duration="209000" />
+      <workItem from="1614338026507" duration="813000" />
     </task>
     <servers />
   </component>
@@ -273,24 +268,17 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="413" y="138" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1612627722568" />
-    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1612624608464">
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1612955183446">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1829" y="138" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1366.768@1366.0.1366.768" timestamp="1612166116245" />
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1920.1080@0.0.1366.768" timestamp="1612955183446" />
     <state x="2017" y="194" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1612521919369" />
     <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1612624608464" />
-    <state x="517" y="307" key="NewPhpFileDialog" timestamp="1604267298518">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="517" y="307" key="NewPhpFileDialog/0.0.1366.768@0.0.1366.768" timestamp="1604267298518" />
     <state x="303" y="204" key="Registry" timestamp="1604357826119">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="303" y="204" key="Registry/0.0.1366.768@0.0.1366.768" timestamp="1604357826119" />
-    <state x="0" y="0" width="1068" height="535" key="dock-window-1" timestamp="1604271660441">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="0" y="0" width="1068" height="535" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1604271660441" />
     <state x="339" y="172" key="run.anything.popup" timestamp="1612625702521">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
