@@ -3,7 +3,7 @@
         <v-container class="pa-sm-6">
             <v-row>
                 <v-col offset-md="3" md="6" >
-                    <v-sheet  elevation="3" class="pa-10 teal darken-3 ">
+                    <v-sheet  elevation="3" class="pa-10 blue darken-4 ">
                         <h2 class="text-center white--text mb-8" >LogIn</h2>
                         <v-row>
                             <v-col
@@ -83,31 +83,30 @@ export default {
                     this.loading = false;
                     if (reason.response.status === 419){
 
-                        this.$swal({
-                            showCancelButton:true,
-                            title:"This is the title",
-                            text:"This is the text",
-                            titleText:"This is the title text",
-                            cancelButtonColor:"red",
-                            confirmButtonColor:"Green",
-
-                        }).then(result=>{
-                            if (result.value){
-                                this.$swal('Opps!',
-                                    reason.response.data.message,
-
-                                    'error').then(result=>{
-                                    console.log("Results",result)
-                                })
-                            }
-
-                        })
+                        // this.$swal({
+                        //     showCancelButton:true,
+                        //     title:"This is the title",
+                        //     text:"This is the text",
+                        //     titleText:"This is the title text",
+                        //     cancelButtonColor:"red",
+                        //     confirmButtonColor:"Green",
+                        //
+                        // }).then(result=>{
+                        //     if (result.value){
+                        //         this.$swal('Opps!',
+                        //             reason.response.data.message,
+                        //
+                        //             'error').then(result=>{
+                        //             console.log("Results",result)
+                        //         })
+                        //     }
+                        //
+                        // })
+                        location.reload();
 
 
                     }
-                    console.log("reason.response",reason.response)
-                    console.log("reason.response.data",reason.response.data)
-                    console.log("reason.response.data.message",reason.response.data.message)
+
                     this.$swal('Opps!',
                         reason.response.data.errors.email[0],
                         'error')

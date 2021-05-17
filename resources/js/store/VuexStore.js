@@ -398,6 +398,7 @@ const store = new Vuex.Store({
            }).then(()=>{
                context.commit('updateIsAuth',false);
                context.commit('updateUser',null);
+               location.reload()
            })
         },
 
