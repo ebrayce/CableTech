@@ -2582,6 +2582,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   data: function data() {
@@ -10622,70 +10625,83 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-sheet",
+    "v-container",
     [
       _c(
         "v-row",
         [
           _c(
             "v-col",
-            { attrs: { col: "12", sm: "12", md: "4", lg: "4" } },
+            { attrs: { cols: "12", "offset-md": "2", md: "8" } },
             [
               _c(
-                "v-card",
-                { staticClass: "blue", attrs: { dark: "" } },
+                "v-row",
                 [
-                  _c("v-card-text", { staticClass: "text-h5" }, [
-                    _vm._v("Number of Products")
-                  ]),
+                  _c(
+                    "v-col",
+                    { attrs: { col: "12", sm: "12", md: "4", lg: "4" } },
+                    [
+                      _c(
+                        "v-card",
+                        { staticClass: "blue", attrs: { dark: "" } },
+                        [
+                          _c("v-card-text", { staticClass: "text-h5" }, [
+                            _vm._v("Number of Products")
+                          ]),
+                          _vm._v(" "),
+                          _c("v-card-text", { staticClass: "text-h5" }, [
+                            _vm._v(_vm._s(_vm.totalProducts))
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("v-card-text", { staticClass: "text-h5" }, [
-                    _vm._v(_vm._s(_vm.totalProducts))
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-col",
-            { attrs: { col: "12", sm: "12", md: "4", lg: "4" } },
-            [
-              _c(
-                "v-card",
-                { staticClass: "green", attrs: { dark: "" } },
-                [
-                  _c("v-card-text", { staticClass: "text-h5" }, [
-                    _vm._v("Below minimum Stock")
-                  ]),
+                  _c(
+                    "v-col",
+                    { attrs: { col: "12", sm: "12", md: "4", lg: "4" } },
+                    [
+                      _c(
+                        "v-card",
+                        { staticClass: "green", attrs: { dark: "" } },
+                        [
+                          _c("v-card-text", { staticClass: "text-h5" }, [
+                            _vm._v("Below minimum Stock")
+                          ]),
+                          _vm._v(" "),
+                          _c("v-card-text", { staticClass: "text-h5" }, [
+                            _vm._v(_vm._s(_vm.belowMinStock))
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("v-card-text", { staticClass: "text-h5" }, [
-                    _vm._v(_vm._s(_vm.belowMinStock))
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-col",
-            { attrs: { col: "12", sm: "12", md: "4", lg: "4" } },
-            [
-              _c(
-                "v-card",
-                { staticClass: "red", attrs: { dark: "" } },
-                [
-                  _c("v-card-text", { staticClass: "text-h5" }, [
-                    _vm._v("Product Out Of Stock ")
-                  ]),
-                  _vm._v(" "),
-                  _c("v-card-text", { staticClass: "text-h5 " }, [
-                    _vm._v(_vm._s(_vm.outOfStock))
-                  ])
+                  _c(
+                    "v-col",
+                    { attrs: { col: "12", sm: "12", md: "4", lg: "4" } },
+                    [
+                      _c(
+                        "v-card",
+                        { staticClass: "red", attrs: { dark: "" } },
+                        [
+                          _c("v-card-text", { staticClass: "text-h5" }, [
+                            _vm._v("Product Out Of Stock ")
+                          ]),
+                          _vm._v(" "),
+                          _c("v-card-text", { staticClass: "text-h5 " }, [
+                            _vm._v(_vm._s(_vm.outOfStock))
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
                 ],
                 1
               )
@@ -13154,7 +13170,17 @@ var render = function() {
                       " —\n"
                   ),
                   _vm._v(" "),
-                  _c("strong", [_vm._v("Powered by Richman")])
+                  _c("strong", [
+                    _vm._v("Powered by "),
+                    _c(
+                      "a",
+                      {
+                        staticStyle: { "text-decoration": "none" },
+                        attrs: { href: "https://www.linkedin.com/in/ebrayce/" }
+                      },
+                      [_vm._v("Ernest Brayce")]
+                    )
+                  ])
                 ]
               )
             ],

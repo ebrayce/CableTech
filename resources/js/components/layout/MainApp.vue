@@ -88,7 +88,7 @@
 <!--                    <a href="https://www.facebook.com/brayce.ernest/" class="darken-4">Powered By-->
 <!--                Ernest Brayce</a>-->
 <!--                </strong>-->
-                <strong>Powered by Richman</strong>
+                <strong>Powered by <a href="https://www.linkedin.com/in/ebrayce/" style="text-decoration: none">Ernest Brayce</a></strong>
             </v-col>
         </v-footer>
     </v-app>

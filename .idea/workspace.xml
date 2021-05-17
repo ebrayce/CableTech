@@ -23,9 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/product/image/original/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product/image/square/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product/image/thumb/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product/image/web/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CableTech.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/MainApp.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,22 +188,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/product/image/web" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Development\CableTech\resources\js\components" />
-      <recent name="C:\xampp\htdocs\Development\CableTech\resources\js\helpers" />
-      <recent name="C:\xampp\htdocs\Development\CableTech" />
-      <recent name="C:\xampp\htdocs\Development\CableTech\app\Console" />
-      <recent name="C:\xampp\htdocs\Development\CableTech\app\Trait" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Development\CableTech\resources\js\components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Development\CableTech\public\product\image\web" />
+      <recent name="C:\xampp\htdocs\Development\CableTech\public\product\image\thumb" />
+      <recent name="C:\xampp\htdocs\Development\CableTech\public\product\image\square" />
+      <recent name="C:\xampp\htdocs\Development\CableTech\resources\js\components" />
+      <recent name="C:\xampp\htdocs\Development\CableTech\resources\js\helpers" />
     </key>
   </component>
   <component name="RunManager">
@@ -245,6 +250,8 @@
       <workItem from="1612952182873" duration="3683000" />
       <workItem from="1613031361808" duration="209000" />
       <workItem from="1614338026507" duration="813000" />
+      <workItem from="1614634229925" duration="1141000" />
+      <workItem from="1621284774446" duration="1073000" />
     </task>
     <servers />
   </component>
@@ -264,30 +271,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="138" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1612627722568">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="463" y="131" key="FileChooserDialogImpl" timestamp="1621284923567">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="138" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1612627722568" />
-    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1612955183446">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="1829" y="138" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1366.768@1366.0.1366.768" timestamp="1612166116245" />
+    <state x="463" y="131" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1621284923567" />
     <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1920.1080@0.0.1366.768" timestamp="1612955183446" />
-    <state x="2017" y="194" key="FileChooserDialogImpl/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1612521919369" />
-    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1612624608464" />
-    <state x="303" y="204" key="Registry" timestamp="1604357826119">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="303" y="204" key="Registry/0.0.1366.768@0.0.1366.768" timestamp="1604357826119" />
-    <state x="339" y="172" key="run.anything.popup" timestamp="1612625702521">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="339" y="172" key="run.anything.popup/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1604415384355" />
-    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1612625702521" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1612629076603">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1600.900@0.0.1366.768" timestamp="1604673434850" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1612629076603" />
   </component>
 </project>
