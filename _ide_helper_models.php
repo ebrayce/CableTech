@@ -114,6 +114,7 @@ namespace App\Models{
  * @property int $product_id
  * @property float $price
  * @property int $quantity
+ * @property string $note
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $date
@@ -124,6 +125,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase query()
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereNote($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Purchase whereQuantity($value)
@@ -141,6 +143,7 @@ namespace App\Models{
  * @property int $quantity
  * @property float $sold_at
  * @property float $price
+ * @property string $note
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $date
@@ -151,6 +154,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sale query()
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereNote($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereQuantity($value)

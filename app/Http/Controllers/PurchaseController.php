@@ -89,6 +89,7 @@ class PurchaseController extends Controller
         $purchase->price = $request->price;
         $purchase->quantity = $request->quantity;
         $purchase->product_id = $request->product_id;
+        $purchase->note = $request->note;
 
         return $purchase;
     }

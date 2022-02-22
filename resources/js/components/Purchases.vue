@@ -85,6 +85,16 @@
                                                 label="Quantity"
                                             ></v-text-field>
                                         </v-col>
+
+                                        <v-col
+                                            cols="12"
+                                            sm="12"
+                                            md="12"
+
+                                        >
+                                            <v-textarea rows="2" v-model="editedItem.note" label="Note"></v-textarea>
+
+                                        </v-col>
                                         <v-input hidden v-model="editedItem.product_id"></v-input>
                                     </v-row>
                                 </v-form>

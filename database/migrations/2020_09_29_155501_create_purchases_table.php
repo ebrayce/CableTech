@@ -19,6 +19,7 @@ class CreatePurchasesTable extends Migration
             $table->foreignIdFor(Product::class);
             $table->double('price');
             $table->integer('quantity');
+            $table->text('note');
             $table->timestamps();
         });
     }

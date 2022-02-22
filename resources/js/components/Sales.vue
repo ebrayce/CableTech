@@ -99,6 +99,15 @@
                                                 type="number"
                                             ></v-text-field>
                                         </v-col>
+
+                                        <v-col
+                                            cols="12"
+                                            md="12"
+                                            sm="12"
+                                        >
+                                            <v-textarea rows="2" v-model="editedItem.note" label="Note"></v-textarea>
+
+                                        </v-col>
                                         <v-input v-model="editedItem.product_id" hidden></v-input>
                                     </v-row>
                                 </v-form>
@@ -231,13 +240,15 @@ export default {
             price: 0,
             quantity: 0,
             product_id: 0,
-            sold_at:0
+            sold_at:0,
+            note:''
         },
         defaultItem: {
             price: 0,
             quantity: 0,
             product_id: 0,
-            sold_at:0
+            sold_at:0,
+            note:''
         },
     }),
     watch: {

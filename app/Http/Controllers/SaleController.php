@@ -93,6 +93,7 @@ class SaleController extends Controller
         $sale->sold_at = $request->sold_at;
         $sale->quantity = $request->quantity;
         $sale->product_id = $request->product_id;
+        $sale->note = $request->note;
 
         return $sale;
     }

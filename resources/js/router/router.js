@@ -13,6 +13,7 @@ const routes = [
     { path: '/',component: require('../components/Home').default, name:"Home Page" },
     // { path: '/admin',component: require('../components/Home').default, name:"Home" },
     { path: '/login',component: require('../components/LogIn').default, name: "Login" },
+    { path: '/bank',component: require('../components/BankComponent').default, name: "Bank" },
     { path: '/register',component: require('../components/Register').default, name: "Register" },
     { path: '/products',component: require('../components/Product').default, name: "Product" },
     { path: '/customers',component: require('../components/CustomersComponent').default, name: "Customer" },
