@@ -144,6 +144,11 @@
 
                             <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
                             <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
+                            <hr>
+                            <v-card-text class="text-body-1">
+                                <h5>Note:</h5>
+                                {{activeItem.note}}
+                            </v-card-text>
                         </v-list>
                     </v-card>
                 </v-dialog>
@@ -260,9 +265,7 @@ export default {
         },
 
     },
-    mounted () {
-        // this.initialize()
-    },
+
     methods:{
         showDescription(item){
             this.activeItem = item;
@@ -304,12 +307,12 @@ export default {
             this.$refs.form.validate();
             if (this.validForm){
                 if (this.editedIndex > -1) {
-                    this.$store.dispatch('updateSale',this.editedItem);
+                    this.$store.dispatch('updateSale',this.editedItem).then(()=> this.close())
                     // Object.assign(this.purchases[this.editedIndex], this.editedItem)
                 } else {
-                    this.$store.dispatch('createSale',this.editedItem)
+                    this.$store.dispatch('createSale',this.editedItem).then(()=> this.close())
                 }
-                this.close()
+
             }
         },
         fillForm(val){

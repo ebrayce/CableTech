@@ -130,6 +130,10 @@
                         <v-list>
                             <v-list-item><span class="headline">Date: {{activeItem.date}}</span></v-list-item>
                             <v-list-item><span class="headline">{{activeItem.fromNow}}</span></v-list-item>
+                            <hr>
+                            <div class="text-body-2">
+                                {{activeItem.note}}
+                            </div>
                         </v-list>
                     </v-card>
                 </v-dialog>

@@ -420,12 +420,8 @@ const store = new Vuex.Store({
             let data = {
                 url: "/sale",
                 mode: "update-sale",
-                id: sale.id,
-                price: sale.price,
-                sold_at: sale.sold_at,
-                quantity: sale.quantity,
-                product_id: sale.product_id,
             }
+            Object.assign(data, {}, sale)
 
             loadSomething(context, data).then(res => {
                 context.commit('updateOneSale', res)
@@ -459,12 +455,9 @@ const store = new Vuex.Store({
             let data = {
                 url: "/sale",
                 mode: "create-sale",
-                price: sale.price,
-                sold_at: sale.sold_at,
-                quantity: sale.quantity,
-                product_id: sale.product_id,
-
             }
+
+            Object.assign(data, data, sale)
 
             loadSomething(context, data).then(res => {
 

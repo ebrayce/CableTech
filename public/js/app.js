@@ -3602,6 +3602,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Purchases",
   data: function data() {
@@ -4180,6 +4184,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Sales",
   data: function data() {
@@ -4249,8 +4258,6 @@ __webpack_require__.r(__webpack_exports__);
       val || this.close();
     }
   },
-  mounted: function mounted() {// this.initialize()
-  },
   methods: {
     showDescription: function showDescription(item) {
       this.activeItem = item;
@@ -4283,16 +4290,20 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.form.resetValidation();
     },
     save: function save() {
+      var _this2 = this;
+
       this.$refs.form.validate();
 
       if (this.validForm) {
         if (this.editedIndex > -1) {
-          this.$store.dispatch('updateSale', this.editedItem); // Object.assign(this.purchases[this.editedIndex], this.editedItem)
+          this.$store.dispatch('updateSale', this.editedItem).then(function () {
+            return _this2.close();
+          }); // Object.assign(this.purchases[this.editedIndex], this.editedItem)
         } else {
-          this.$store.dispatch('createSale', this.editedItem);
+          this.$store.dispatch('createSale', this.editedItem).then(function () {
+            return _this2.close();
+          });
         }
-
-        this.close();
       }
     },
     fillForm: function fillForm(val) {
@@ -12264,6 +12275,16 @@ var render = function() {
                               _c("span", { staticClass: "headline" }, [
                                 _vm._v(_vm._s(_vm.activeItem.fromNow))
                               ])
+                            ]),
+                            _vm._v(" "),
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-body-2" }, [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(_vm.activeItem.note) +
+                                  "\n                        "
+                              )
                             ])
                           ],
                           1
@@ -13020,6 +13041,17 @@ var render = function() {
                               _c("span", { staticClass: "headline" }, [
                                 _vm._v(_vm._s(_vm.activeItem.fromNow))
                               ])
+                            ]),
+                            _vm._v(" "),
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c("v-card-text", { staticClass: "text-body-1" }, [
+                              _c("h5", [_vm._v("Note:")]),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(_vm.activeItem.note) +
+                                  "\n                        "
+                              )
                             ])
                           ],
                           1
@@ -76257,13 +76289,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
               case 0:
                 data = {
                   url: "/sale",
-                  mode: "update-sale",
-                  id: sale.id,
-                  price: sale.price,
-                  sold_at: sale.sold_at,
-                  quantity: sale.quantity,
-                  product_id: sale.product_id
+                  mode: "update-sale"
                 };
+                Object.assign(data, {}, sale);
                 Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
                   context.commit('updateOneSale', res);
                   showSuccessNotification('Sale updated successfully.');
@@ -76271,7 +76299,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
                   showErrorNotification();
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context5.stop();
             }
@@ -76317,12 +76345,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
                 // console.log(sale,"Salll")
                 data = {
                   url: "/sale",
-                  mode: "create-sale",
-                  price: sale.price,
-                  sold_at: sale.sold_at,
-                  quantity: sale.quantity,
-                  product_id: sale.product_id
+                  mode: "create-sale"
                 };
+                Object.assign(data, data, sale);
                 Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
                   context.commit('addToSales', res.sale);
                   context.commit('updateOneProduct', res.product);
@@ -76331,7 +76356,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
                   showErrorNotification();
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context7.stop();
             }

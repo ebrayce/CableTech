@@ -23,22 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CableTech.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CableTech.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_155439_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_155439_create_sales_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_155501_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_155501_create_purchases_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Purchases.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Purchases.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Sales.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Sales.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/navigations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/navigations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/VuexStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/VuexStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +261,7 @@
       <workItem from="1645370284462" duration="2055000" />
       <workItem from="1645386608593" duration="2822000" />
       <workItem from="1645429607417" duration="47000" />
-      <workItem from="1645562918267" duration="1471000" />
+      <workItem from="1645562918267" duration="5157000" />
     </task>
     <servers />
   </component>
