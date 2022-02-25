@@ -14,7 +14,7 @@ class AddNoteToPurchasesTable extends Migration
     public function up()
     {
         Schema::table('purchases', function (Blueprint $table) {
-            $table->text('note');
+            $table->text('note')->nullable();
         });
     }
 
