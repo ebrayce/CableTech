@@ -23,12 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebb9955c-78f3-446f-89c0-437d1da2031c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Purchases.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Purchases.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Sales.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Sales.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/VuexStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/VuexStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_155439_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_155439_create_sales_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,6 +258,7 @@
       <workItem from="1645429607417" duration="47000" />
       <workItem from="1645562918267" duration="5157000" />
       <workItem from="1645737694796" duration="230000" />
+      <workItem from="1645737946199" duration="765000" />
     </task>
     <servers />
   </component>

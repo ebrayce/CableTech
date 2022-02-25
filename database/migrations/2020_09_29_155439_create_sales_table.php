@@ -20,7 +20,6 @@ class CreateSalesTable extends Migration
             $table->integer('quantity');
             $table->double('sold_at');
             $table->double('price');
-            $table->text('note');
             $table->timestamps();
         });
     }
