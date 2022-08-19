@@ -45,8 +45,8 @@ const store = new Vuex.Store({
         purchases: [],
         isAuth: false,
         overview: {},
-        options:{
-            showAppBar:false,
+        options: {
+            showAppBar: false,
         },
     },
     mutations: {
@@ -63,10 +63,10 @@ const store = new Vuex.Store({
         updateOverview(state, overview) {
             state.overview = overview;
         },
-        hideAppBar(state){
+        hideAppBar(state) {
             state.options.showAppBar = false;
         },
-        showAppBar(state){
+        showAppBar(state) {
             state.options.showAppBar = true;
         },
 
@@ -87,15 +87,15 @@ const store = new Vuex.Store({
         },
         updateOneProductImages(state, payload) {
             console.log(payload)
-            let index = state.products.findIndex(prod=>{
+            let index = state.products.findIndex(prod => {
                 return prod.id === payload.productId;
             })
-            if (index>-1){
+            if (index > -1) {
                 state.products[index].images = payload.images;
             }
 
         },
-        deleteOneProduct(state,product) {
+        deleteOneProduct(state, product) {
             let index = -1;
 
             for (const prod of state.products) {
@@ -167,7 +167,6 @@ const store = new Vuex.Store({
         },
 
 
-
         //    For Customers
         updateCustomers(state, customers) {
             state.customers = customers;
@@ -192,8 +191,16 @@ const store = new Vuex.Store({
         customersLoaded(state) {
             state.loaded.customers = true
         },
+        productsLoaded(state) {
+            state.loaded.products = true
+        },
+        salesLoaded(state) {
+            state.loaded.sales = true
+        },
+        purchasesLoaded(state) {
+            state.loaded.purchases = true
+        }
         //    End Customer
-
 
 
     },
@@ -203,7 +210,7 @@ const store = new Vuex.Store({
                 axios.post(payload.url, payload).then(res => {
                     resolve(res)
                 }).catch(error => {
-                    if (error.response.status === 419){
+                    if (error.response.status === 419) {
                         context.dispatch('pageExpired');
                     }
 
@@ -212,16 +219,14 @@ const store = new Vuex.Store({
             })
         },
 
-        uploadProductImages(context, payload)
-        {
+        uploadProductImages(context, payload) {
             let info = {}
             info.url = "";
             info.mode = "upload-image";
 
 
-
             let form = new FormData();
-            payload.images.forEach(file=>{
+            payload.images.forEach(file => {
                 form.append('files[]', file)
             })
 
@@ -231,8 +236,8 @@ const store = new Vuex.Store({
             return new Promise((resolve, reject) => {
                 axios.post('/data', form).then(res => {
                     resolve(res)
-                }).catch(error =>{
-                    reject(error)
+                }).catch(error => {
+                        reject(error)
                     }
                 )
             })
@@ -241,24 +246,24 @@ const store = new Vuex.Store({
             // context.dispatch('loadPost', )
         },
 
-        removeProductImage(context, payload){
+        removeProductImage(context, payload) {
             return new Promise((resolve, reject) => {
-                context.dispatch("loadPost", payload).then(res=>{
+                context.dispatch("loadPost", payload).then(res => {
                     // Update that product images with new images
                     let pl = {
-                        images:res.data,
-                        productId:payload.product_id
+                        images: res.data,
+                        productId: payload.product_id
                     }
-                   context.commit('updateOneProductImages', pl)
+                    context.commit('updateOneProductImages', pl)
                     resolve(res)
-                }).catch(error=>{
+                }).catch(error => {
                     reject(error)
                 })
             })
         },
 
-        pageExpired(context){
-            context.commit('updateIsAuth',false)
+        pageExpired(context) {
+            context.commit('updateIsAuth', false)
         },
 
         async loadData(context) {
@@ -270,20 +275,21 @@ const store = new Vuex.Store({
         },
 
         async loadProducts(context) {
-            let data = {
-                url: "/data",
-                mode: "load-products",
+            //return if loaded already
+            if (!context.state.loaded.products) {
+                let data = {
+                    url: "/data",
+                    mode: "load-products",
+                }
+                loadSomething(context, data).then(res => {
+                    // console.log("Good", res)
+                    context.commit('updateAllProducts', res)
+                    context.commit("productsLoaded")
+                }).catch(error => {
+                    showErrorNotification()
+                });
             }
-            loadSomething(context, data).then(res => {
-                // console.log("Good", res)
-                context.commit('updateAllProducts', res)
-
-            }).catch(error => {
-                showErrorNotification()
-            });
-
         },
-
 
         async loadOverview(context) {
             let data = {
@@ -329,22 +335,22 @@ const store = new Vuex.Store({
                 context.commit('deleteOneProduct', product)
 
 
-                let itSales = context.state.sales.filter(sale=>{
+                let itSales = context.state.sales.filter(sale => {
                     return sale.product_id === product.id;
                 })
 
-                let itPurchases = context.state.purchases.filter(purchase=>{
+                let itPurchases = context.state.purchases.filter(purchase => {
                     return purchase.product_id === product.id;
                 })
 
                 // console.log(itSales,itPurchases)
 
-                itPurchases.forEach(purchase=>{
-                    context.commit('deleteOnePurchase',purchase)
+                itPurchases.forEach(purchase => {
+                    context.commit('deleteOnePurchase', purchase)
                 })
 
-                itSales.forEach(sale=>{
-                    context.commit('deleteOneSale',sale)
+                itSales.forEach(sale => {
+                    context.commit('deleteOneSale', sale)
                 })
 
                 showSuccessNotification("Product Deleted successfully.")
@@ -374,8 +380,8 @@ const store = new Vuex.Store({
         },
 
         loadUser: function (context) {
-            context.dispatch('loadPost',{
-                url:"/user"
+            context.dispatch('loadPost', {
+                url: "/user"
             }).then(res => {
                 context.commit('updateUser', res.data)
             })
@@ -395,28 +401,28 @@ const store = new Vuex.Store({
 
         },
         logout(context) {
-           context.dispatch('loadPost',{
-               url:'/logout'
-           }).then(()=>{
-               context.commit('updateIsAuth',false);
-               context.commit('updateUser',null);
-               location.reload()
-           })
+            context.dispatch('loadPost', {
+                url: '/logout'
+            }).then(() => {
+                context.commit('updateIsAuth', false);
+                context.commit('updateUser', null);
+                location.reload()
+            })
         },
-
         async loadSales(context) {
-            let data = {
-                url: "/sale",
-                mode: "load-sales",
+            if (!context.state.loaded.sales) {
+                let data = {
+                    url: "/sale",
+                    mode: "load-sales",
+                }
+                loadSomething(context, data).then(res => {
+                    // console.log("Good", res)
+                    context.commit('updateAllSales', res)
+                    context.commit('salesLoaded')
+                }).catch(error => {
+                    showErrorNotification();
+                });
             }
-            loadSomething(context, data).then(res => {
-                // console.log("Good", res)
-                context.commit('updateAllSales', res)
-            }).catch(error => {
-                showErrorNotification();
-
-            });
-
         },
         async updateSale(context, sale) {
             let data = {
@@ -470,20 +476,20 @@ const store = new Vuex.Store({
                 showErrorNotification();
             });
         },
-
-
         async loadPurchases(context) {
-            let data = {
-                url: "/purchase",
-                mode: "load-purchases",
+            if (!context.state.loaded.purchases) {
+                let data = {
+                    url: "/purchase",
+                    mode: "load-purchases",
+                }
+                loadSomething(context, data).then(res => {
+                    // console.log("Good", res)
+                    context.commit('updateAllPurchases', res)
+                    context.commit('purchasesLoaded')
+                }).catch(error => {
+                    showErrorNotification()
+                });
             }
-            loadSomething(context, data).then(res => {
-                // console.log("Good", res)
-                context.commit('updateAllPurchases', res)
-            }).catch(error => {
-                showErrorNotification()
-            });
-
         },
         updatePurchase(context, purchase) {
             let data = {
@@ -508,7 +514,6 @@ const store = new Vuex.Store({
                 url: "/purchase",
                 mode: "delete-purchase",
                 id: purchase.id,
-
             }
 
             loadSomething(context, data).then(res => {
@@ -530,7 +535,6 @@ const store = new Vuex.Store({
                 product_id: purchase.product_id,
 
             }
-
             loadSomething(context, data).then(res => {
                 // console.log(res)
                 context.commit('addToPurchases', res.purchase)
@@ -540,8 +544,6 @@ const store = new Vuex.Store({
                 showErrorNotification()
             });
         },
-
-
 
         loadACustomer(context, id) {
 
@@ -578,9 +580,7 @@ const store = new Vuex.Store({
                         reject(error)
                     })
                 })
-
             }
-
         },
 
         //    Create Customer
@@ -601,7 +601,7 @@ const store = new Vuex.Store({
                         context.commit('updateACustomer', res.data)
                     }
                     resolve(res)
-                }).catch(err=>{
+                }).catch(err => {
                     reject(err)
                 })
 
@@ -623,8 +623,6 @@ const store = new Vuex.Store({
                 })
             })
         },
-
-
     },
     getters: {
         outOfStock: (state, getters) => {
@@ -634,7 +632,6 @@ const store = new Vuex.Store({
             return state.products.filter(product => product.is)
         },
         querySelections: (state) => (v) => {
-
             let prods = [];
             // Simulated ajax query
             prods = state.products.filter(e => {
@@ -642,8 +639,6 @@ const store = new Vuex.Store({
             })
             // console.log(prods)
             return prods
-
-
         },
         getSaleById: (state) => (id) => {
             let sales = state.sales.filter(sale => {
@@ -654,7 +649,6 @@ const store = new Vuex.Store({
             } else {
                 return null;
             }
-
         },
         getProductById: (state) => (id) => {
             let products = state.products.filter(product => {
@@ -667,7 +661,6 @@ const store = new Vuex.Store({
                 return null;
             }
         },
-
     }
 })
 

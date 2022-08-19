@@ -76047,6 +76047,15 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     },
     customersLoaded: function customersLoaded(state) {
       state.loaded.customers = true;
+    },
+    productsLoaded: function productsLoaded(state) {
+      state.loaded.products = true;
+    },
+    salesLoaded: function salesLoaded(state) {
+      state.loaded.sales = true;
+    },
+    purchasesLoaded: function purchasesLoaded(state) {
+      state.loaded.purchases = true;
     } //    End Customer
 
   },
@@ -76132,18 +76141,22 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                data = {
-                  url: "/data",
-                  mode: "load-products"
-                };
-                Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
-                  // console.log("Good", res)
-                  context.commit('updateAllProducts', res);
-                })["catch"](function (error) {
-                  showErrorNotification();
-                });
+                //return if loaded already
+                if (!context.state.loaded.products) {
+                  data = {
+                    url: "/data",
+                    mode: "load-products"
+                  };
+                  Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
+                    // console.log("Good", res)
+                    context.commit('updateAllProducts', res);
+                    context.commit("productsLoaded");
+                  })["catch"](function (error) {
+                    showErrorNotification();
+                  });
+                }
 
-              case 2:
+              case 1:
               case "end":
                 return _context2.stop();
             }
@@ -76272,18 +76285,21 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                data = {
-                  url: "/sale",
-                  mode: "load-sales"
-                };
-                Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
-                  // console.log("Good", res)
-                  context.commit('updateAllSales', res);
-                })["catch"](function (error) {
-                  showErrorNotification();
-                });
+                if (!context.state.loaded.sales) {
+                  data = {
+                    url: "/sale",
+                    mode: "load-sales"
+                  };
+                  Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
+                    // console.log("Good", res)
+                    context.commit('updateAllSales', res);
+                    context.commit('salesLoaded');
+                  })["catch"](function (error) {
+                    showErrorNotification();
+                  });
+                }
 
-              case 2:
+              case 1:
               case "end":
                 return _context4.stop();
             }
@@ -76382,18 +76398,21 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
-                data = {
-                  url: "/purchase",
-                  mode: "load-purchases"
-                };
-                Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
-                  // console.log("Good", res)
-                  context.commit('updateAllPurchases', res);
-                })["catch"](function (error) {
-                  showErrorNotification();
-                });
+                if (!context.state.loaded.purchases) {
+                  data = {
+                    url: "/purchase",
+                    mode: "load-purchases"
+                  };
+                  Object(_helpers_loadSomething__WEBPACK_IMPORTED_MODULE_3__["loadSomething"])(context, data).then(function (res) {
+                    // console.log("Good", res)
+                    context.commit('updateAllPurchases', res);
+                    context.commit('purchasesLoaded');
+                  })["catch"](function (error) {
+                    showErrorNotification();
+                  });
+                }
 
-              case 2:
+              case 1:
               case "end":
                 return _context8.stop();
             }
