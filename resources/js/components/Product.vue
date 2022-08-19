@@ -460,7 +460,7 @@ export default {
         },
     },
     mounted () {
-        // this.initialize()
+        this.$store.dispatch('loadData');
     },
     methods:{
         deleteProductImage(imageId){

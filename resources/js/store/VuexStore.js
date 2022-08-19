@@ -33,8 +33,10 @@ const store = new Vuex.Store({
             email: '',
         },
         loaded: {
-
             customers: false,
+            products: false,
+            sales: false,
+            purchases: false,
 
         },
         customers: [],

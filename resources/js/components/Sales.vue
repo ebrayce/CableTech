@@ -275,7 +275,7 @@ export default {
             return this.$store.getters.getProductById(id).name;
         },
         initialize(){
-            // this.$store.dispatch('loadPurchases');
+            this.$store.dispatch('loadPurchases');
         },
         editItem (item) {
 
@@ -326,6 +326,9 @@ export default {
 
             }
         }
+    },
+    mounted () {
+        this.$store.dispatch('loadData');
     },
     computed:{
         sales(){

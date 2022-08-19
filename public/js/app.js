@@ -3281,7 +3281,8 @@ __webpack_require__.r(__webpack_exports__);
     showingDescription: function showingDescription(val) {// val || this.close()
     }
   },
-  mounted: function mounted() {// this.initialize()
+  mounted: function mounted() {
+    this.$store.dispatch('loadData');
   },
   methods: {
     deleteProductImage: function deleteProductImage(imageId) {
@@ -3678,7 +3679,8 @@ __webpack_require__.r(__webpack_exports__);
       this.editedItem = item;
     }
   },
-  mounted: function mounted() {// this.initialize()
+  mounted: function mounted() {
+    this.$store.dispatch('loadData');
   },
   methods: {
     showDescription: function showDescription(item) {
@@ -4267,7 +4269,8 @@ __webpack_require__.r(__webpack_exports__);
     productName: function productName(id) {
       return this.$store.getters.getProductById(id).name;
     },
-    initialize: function initialize() {// this.$store.dispatch('loadPurchases');
+    initialize: function initialize() {
+      this.$store.dispatch('loadPurchases');
     },
     editItem: function editItem(item) {
       // console.log(item)
@@ -4317,6 +4320,9 @@ __webpack_require__.r(__webpack_exports__);
         this.editedItem.sold_at = product.price;
       }
     }
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('loadData');
   },
   computed: {
     sales: function sales() {
@@ -75820,7 +75826,10 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
       email: ''
     },
     loaded: {
-      customers: false
+      customers: false,
+      products: false,
+      sales: false,
+      purchases: false
     },
     customers: [],
     products: [],

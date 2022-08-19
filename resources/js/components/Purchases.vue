@@ -244,7 +244,7 @@ export default {
         }
     },
     mounted () {
-        // this.initialize()
+        this.$store.dispatch('loadData');
     },
     methods:{
         showDescription(item){
