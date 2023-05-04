@@ -24,6 +24,19 @@ Vue.use(VueSweetalert2);
 
 
 Vue.use(Vuex)
+
+Vue.filter('currency', function currency(value, code = "GHS") {
+    if (typeof value !== "number") {
+        return value;
+    }
+    let formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: code || "GHC",
+        minimumFractionDigits: 2
+    });
+    return formatter.format(value);
+})
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

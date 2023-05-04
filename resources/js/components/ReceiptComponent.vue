@@ -32,7 +32,6 @@ export default {
     },
     methods: {
         print(data) {
-            console.log(data)
             Object.assign(this.titles, data.titles)
             this.packages = data.packages
             this.items = data.items

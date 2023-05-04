@@ -41,23 +41,23 @@
                         <td>{{ index + 1 }}</td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.quantity }}</td>
-                        <td>{{ item.price }}</td>
-                        <td>{{ item.price * item.quantity }}</td>
+                        <td>{{ item.price | currency }}</td>
+                        <td>{{ (item.price * item.quantity) | currency}}</td>
                     </tr>
                     <tr>
                         <td class="font-weight-medium">Labour</td>
                         <td></td>
-<!--                        <td>{{items.length + 1}}</td>-->
+                        <!--                        <td>{{items.length + 1}}</td>-->
                         <td></td>
                         <td></td>
-                        <td class="">{{ titles.labour }}</td>
+                        <td class="">{{ titles.labour | currency }}</td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold">Total</td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="font-weight-bold">{{ total }}</td>
+                        <td class="font-weight-bold">{{ total | currency }}</td>
                     </tr>
 
 
@@ -67,7 +67,7 @@
         </v-container>
 
 
-        <v-container class="mt-12">
+        <v-container v-if="packages.length > 0" class="mt-12">
             <div class="text-h5">{{ titles.packages }}</div>
             <v-simple-table>
                 <template v-slot:default>
@@ -91,9 +91,8 @@
                     >
                         <td>{{ index + 1 }}</td>
                         <td>{{ item.name }}</td>
-                        <td>{{ item.price }}</td>
+                        <td>{{ item.price | currency }}</td>
                     </tr>
-
 
 
                     </tbody>
@@ -107,19 +106,19 @@
 </template>
 
 <script>
-export default {
-    name: "ReceiptTemplate",
-    props: ['items', 'titles', 'packages'],
-    computed: {
-        total() {
-            let t = 0;
-            this.items.forEach((item) => {
-                t += item.price * item.quantity
-            })
-            return t + this.titles.labour;
+    export default {
+        name: "ReceiptTemplate",
+        props: ['items', 'titles', 'packages'],
+        computed: {
+            total() {
+                let t = 0;
+                this.items.forEach((item) => {
+                    t += item.price * item.quantity
+                })
+                return t + this.titles.labour;
+            }
         }
     }
-}
 </script>
 
 <style scoped>

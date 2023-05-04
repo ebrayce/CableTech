@@ -220,7 +220,6 @@ export default {
                 packages: this.packages
             }
             this.$emit("print", d)
-
         }
     }
 }
